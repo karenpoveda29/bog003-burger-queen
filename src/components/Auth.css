@@ -1,0 +1,66 @@
+.Login{
+    text-align: center;
+}
+
+.Login-img{
+    margin-top: 10%;
+    margin-left:4%;
+    width:350px;
+}
+
+.Register-img{
+    margin-top: 8%;
+    margin-left:5%;
+    width:250px;
+}
+
+form.form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+input#inputEmail, #inputPassword, #inputName {
+
+    width: 40%;
+    height: 40px;
+    margin-top: 3%;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #F29F05;
+}
+
+h1 {
+    color: #97C232;
+}
+
+button {
+    margin-top: 5%;
+    margin-bottom: 6%;
+    width: 40%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #97C232;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px 0px #97c2329e;
+}
+
+a {
+    font-size: 1.5rem;
+}
+
+select#userType {
+    width: 41%;
+    height: 50px;
+    margin-top: 3%;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid #F29F05;
+}
