@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 
-export default function Login() {
+export const Login = ()=> {
     return (
         <div>
             <img src={"./images/logo.png"} alt="Burger Queen" />

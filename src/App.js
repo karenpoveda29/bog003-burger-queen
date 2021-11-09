@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Register from './components/Register';
-import Login from './components/Login';
+import {Register} from './components/Register';
+import {Login} from './components/Login';
 
 
 
-function App() {
+export const App= () => {
   return (
     <div className="App">
     <Router>
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+//export default App;
