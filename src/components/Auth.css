@@ -49,6 +49,7 @@ button {
     font-size: 1rem;
     font-weight: bold;
     box-shadow: 2px 2px 3px 0px #97c2329e;
+    cursor: pointer;
 }
 
 a {
@@ -63,4 +64,9 @@ select#userType {
     text-align: center;
     border-radius: 10px;
     border: 2px solid #F29F05;
+}
+
+
+.registerOk {
+    color: green;
 }
