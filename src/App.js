@@ -1,10 +1,10 @@
 import React from 'react'
 import './App.css';
 //import {fbConfig} from './fb'
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import {Register} from './components/Register';
-import {Login} from './components/Login';
-import {Home} from './components/Home'
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { RegisterForm } from './components/RegisterForm';
+import { Login } from './components/Login';
+import { Home } from './components/Home'
 
 
 
@@ -21,7 +21,7 @@ export const App= () => {
       
     <Router>
       <Switch>
-        <Route exact path= "/" >
+        <Route exact path= "/">
          <Login />
         </Route>
 
@@ -30,7 +30,7 @@ export const App= () => {
         </Route>
         
         <Route path = "/register">
-         <Register />
+         <RegisterForm />
         </Route>
         
         <Route path = "/home">
