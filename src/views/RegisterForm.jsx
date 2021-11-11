@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { registerUser } from "../firebaseFunctions"
-import './Auth.css'
+import '../styles/login-register.css'
 
 
 export const RegisterForm = () => {

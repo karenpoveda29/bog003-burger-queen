@@ -13,8 +13,6 @@ export const registerUser = (userName, email, password) => {
 export const loginUser = (email, password) => {
   fbConfig.auth()
   .signInWithEmailAndPassword(email, password)
-  /* .then((userFb)=>{
-    console.log('Sesión iniciada correctamente', userFb);
-    window.location.pathname = "/home";
-  }) */
-}
+};
+
+export const logOutUser = () => fbConfig.auth().signOut();

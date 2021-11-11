@@ -1,8 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { loginUser } from "../firebaseFunctions"
-import './Auth.css'
-//import { Register } from "./Register"
+import '../styles/login-register.css'
 
 
 
@@ -14,7 +13,7 @@ export const Login = (props)=> {
 		const password = e.target.inputPassword.value;
 	
 		loginUser(email, password)
-		window.location.pathname = "/home";
+		window.location.pathname = "/profile-selection";
 			
 	}
 
