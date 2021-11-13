@@ -1,11 +1,10 @@
 import React from 'react'
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { RegisterForm } from './views/RegisterForm';
 import { Login } from './views/Login';
-import { HomeChef } from './views/HomeChef'
-import { HomeWaiter } from './views/HomeWaiter';
+import { RegisterForm } from './views/RegisterForm';
 import { ProfileSelection } from './views/ProfileSelection';
+import { HomeWaiter } from './views/HomeWaiter';
+import { HomeChef } from './views/HomeChef'
 
 export const App= () => {
 

@@ -1,7 +1,7 @@
 import React from "react"
+import '../styles/login.css'
 import { Link } from "react-router-dom"
 import { loginUser } from "../firebaseFunctions"
-import '../styles/login-register.css'
 
 
 
@@ -18,18 +18,27 @@ export const Login = (props)=> {
 	}
 
 	return (
-			<div className="Login">
-					<img className= "Login-img" src={"./images/logo.png"} alt="Burger Queen" />
-					<h1>Inicia sesión</h1>
-					<form className= "form" onSubmit = { loginSession }>
-					<input type="email" id="inputEmail" placeholder="email"></input>
-					<input type="password" id="inputPassword" placeholder="password"></input>
+			<div className="container-login">
+				<img className= "login-img" src={"./images/logo.png"} alt="Burger Queen" />
+				<h1 className="form-title">Inicia sesión</h1>
+				<form className= "form-login" onSubmit = { loginSession }>
+					<label htmlFor="inputEmail">
+						<span className="require">*</span>
+						Correo electrónico
+					</label>
+					<input type="email" id="inputEmail" placeholder="panchito@gmail.com" required></input>
+
+					<label htmlFor="inputPassword">
+						<span className="require">*</span>
+						Contraseña
+					</label>
+					<input type="password" id="inputPassword" placeholder="Ingresa tu contraseña" required></input>
 					
-					<button>Ingresar</button>
+					<button className="btn-login">Ingresar</button>
 					
-					</form>
-					<Link to="/register">Registrarse</Link>
+				</form>
+				<Link to="/register">Registrarse</Link>
 
 			</div>
 	)
-}
+};
