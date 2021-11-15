@@ -1,0 +1,16 @@
+.menu-breakfast {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10%;
+  width: 60%;
+}
+
+.line {
+  width: 100%;
+  margin-top: 15%;
+}
+
+hr {
+  border: 1 px solid var(--main-color2);
+}
