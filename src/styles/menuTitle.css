@@ -4,36 +4,33 @@
 h1 {
   color: var(--main-color2);
   text-align: center;
-  margin-top: 5%;
+  margin-top: 9%;
+  font-size: 2.2rem;
+  font-weight: bold;
 }
 
 select#userTable {
-  margin-left: 5%;
-  font-size: 1rem;
-  text-align: center;
+  margin-left: 10%;
+  font-size: 1.2rem;
   display: flex;
-  align-items: flex-start;
   justify-content: flex-start;
-  padding: 1% 5%;
-  border: 2px solid var(--main-color1);
+  padding: 0.5% 1%;
+  border: 1px solid var(--main-color1);
   margin-bottom: 2%;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
-label {
-  margin-left: 5%;
+label.customer {
+  margin-left: 10%;
   margin-right: 2%;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
 input#inputNameClient {
-  border-radius: 10px 0 px 10 px 0;
-  border-top: 0.2 px solid #fec762;
-  border-bottom: 2 px solid var(--main-color1);
-  border-left: 0.2 px solid #fec762;
-  border-right: 2 px solid var(--main-color1);
-  margin-bottom: 0.8 rem;
-  padding: 0.5 rem 0 0.5 rem 1 rem;
   font-size: 1rem;
+  padding: 0.9% 4%;
+  border: 1px solid var(--main-color1);
+  border-radius: 5px;
+  text-align: center;
 }

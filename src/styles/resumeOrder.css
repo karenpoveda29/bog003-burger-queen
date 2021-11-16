@@ -1,3 +1,41 @@
+.resume-order {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    align-items: center;
+    border: 1% solid black;
+    margin-top: 2%;
+    border-top: 2px solid var(--main-color2);
+}
+
+
 h2{
     color: var(--main-color1);
+}
+
+h3.total {
+    font-size: 1.5rem;
+    color: var(--main-color1);
+}
+
+button.btn-cancel {
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--main-color1);
+    background-color: white;
+    border: 1px solid var(--main-color1);
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+button.btn-sendKitchen {
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(223deg, var(--main-color1), #f7d166);
+    border: none;
+    border-radius: 10px;
+    margin-left: 20px;
 }
