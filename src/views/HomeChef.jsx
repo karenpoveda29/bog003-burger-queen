@@ -1,7 +1,7 @@
 import React from "react";
-import '../styles/homeView.css'
-import { Home } from "../components/Home"
-import { NavBarChef } from "../components/NavBarChef";
+import '../styles/waiter-chef.css'
+import { Home } from "./sub-views/Home"
+import { NavBarChef } from "../components/chef/NavBarChef";
 
 export const HomeChef = () => {
     return (

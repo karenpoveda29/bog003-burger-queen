@@ -1,6 +1,6 @@
 import React from "react";
-import '../styles/navBar.css'
-import {logOutUser} from "../firebaseFunctions"
+import '../../styles/navBar.css'
+import {logOutUser} from "../../firebaseFunctions"
 
 export const NavBarChef = () => {
 

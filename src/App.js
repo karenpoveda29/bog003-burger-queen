@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Login } from './views/Login';
 import { RegisterForm } from './views/RegisterForm';
 import { ProfileSelection } from './views/ProfileSelection';
-import { HomeWaiter } from './views/HomeWaiter';
+import { Waiter } from './views/Waiter';
 import { HomeChef } from './views/HomeChef'
 
 export const App= () => {
@@ -30,8 +30,8 @@ export const App= () => {
             <ProfileSelection />
           </Route>
           
-          <Route path = "/home-waiter">
-            <HomeWaiter />
+          <Route path = "/waiter">
+            <Waiter />
           </Route>
 
           <Route path = "/home-chef">

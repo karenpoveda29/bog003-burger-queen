@@ -4,7 +4,7 @@ import '../styles/profileSelection.css'
 export const ProfileSelection = () => {
 
     const goToHomeWaiter = () => {
-        window.location.pathname = "/home-waiter"
+        window.location.pathname = "/waiter"
     }
 
     const goToHomeChef = () => {

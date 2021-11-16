@@ -1,6 +1,7 @@
 import React from "react";
-import '../styles/navBar.css'
-import { logOutUser } from "../firebaseFunctions"
+import { Link } from "react-router-dom";
+import '../../styles/navBar.css'
+import { logOutUser } from "../../firebaseFunctions"
 
 export const NavBarWaiter = () => {
 
@@ -15,11 +16,11 @@ export const NavBarWaiter = () => {
       <img className="logo-text" src={"./images/BQ.png"} alt="Burger Queen" />
       <h2>Menús</h2>
       <div>
-        <img className="menu-breakfast" src={"./images/menu1.png"} alt="Menu desayuno" />
+        <Link to="/breakfast-menu"><img className="menu-breakfast" src={"./images/menu1.png"} alt="Menu desayuno" /> </Link>
         {/* <p>Desayuno</p> */}
       </div>
       <div>
-        <img className="menu-lunch" src={"./images/menu2.png"} alt="Menu Resto del Dia" />
+        <Link to="/burgers-menu"><img className="menu-lunch" src={"./images/menu2.png"} alt="Menu Resto del Dia" /> </Link>
         {/* <p>Resto del Dia</p> */}
       </div>
       <hr />
