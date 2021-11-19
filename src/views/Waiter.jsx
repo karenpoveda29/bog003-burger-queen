@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, useRouteMatch } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 import "../styles/waiter-chef.css";
 import { NavBarWaiter } from "../components/waiter/NavBarWaiter";
 import { Home } from "./sub-views/Home";
@@ -14,7 +14,7 @@ export const Waiter = () => {
         <NavBarWaiter />
       
 
-       
+        <Switch>
           <Route exact path={path}>
             <Home />
           </Route>
@@ -24,7 +24,7 @@ export const Waiter = () => {
           <Route path={`${path}/burgers-menu`}>
             <BurgersMenu />
           </Route>
-
+        </Switch>
 
     </div>
   );

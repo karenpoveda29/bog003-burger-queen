@@ -2,6 +2,7 @@ import React from "react"
 import '../styles/login.css'
 import { Link } from "react-router-dom"
 import { loginUser } from "../firebaseFunctions"
+import logo from "../images/Logo.png"
 
 
 
@@ -19,7 +20,7 @@ export const Login = (props)=> {
 
 	return (
 			<div className="container-login">
-				<img className= "login-img" src={"./images/logo.png"} alt="Burger Queen" />
+				<img className= "login-img" src={logo} alt="Burger Queen" />
 				<h1 className="form-title">Inicia sesión</h1>
 				<form className= "form-login" onSubmit = { loginSession }>
 					<label htmlFor="inputEmail">

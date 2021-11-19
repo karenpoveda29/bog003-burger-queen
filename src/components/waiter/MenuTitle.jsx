@@ -1,13 +1,12 @@
 import React from "react";
 import "../../styles/menuTitle.css";
 
-export const MenuTitle = () => {
-  const path = window.location.pathname;
-  console.log(path);
+export const MenuTitle = ({ title }) => {
+
   return (
     <div className="menuTitle">
-      {path === "/breakfast-menu" && <h1>Menú desayuno</h1>}
-      {path === "/burgers-menu" && <h1>Menú resto del día</h1>}
+       <h1>{ title }</h1>
+  
       <select className="user-table" id="userTable">
         <option value="mesa">Mesa</option>
         <option value="1">Mesa 1</option>
