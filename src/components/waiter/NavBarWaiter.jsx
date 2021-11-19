@@ -16,11 +16,11 @@ export const NavBarWaiter = () => {
       <img className="logo-text" src={"./images/BQ.png"} alt="Burger Queen" />
       <h2>Menús</h2>
       <div>
-        <Link to="/breakfast-menu"><img className="menu-breakfast" src={"./images/menu1.png"} alt="Menu desayuno" /> </Link>
+        <Link to="/waiter/breakfast-menu"><img className="menu-breakfast" src={"./images/menu1.png"} alt="Menu desayuno" /> </Link>
         {/* <p>Desayuno</p> */}
       </div>
       <div>
-        <Link to="/burgers-menu"><img className="menu-lunch" src={"./images/menu2.png"} alt="Menu Resto del Dia" /> </Link>
+        <Link to="/waiter/burgers-menu"><img className="menu-lunch" src={"./images/menu2.png"} alt="Menu Resto del Dia" /> </Link>
         {/* <p>Resto del Dia</p> */}
       </div>
       <hr />
