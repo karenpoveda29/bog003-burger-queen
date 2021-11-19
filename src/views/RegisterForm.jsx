@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import '../styles/register.css'
 import { registerUser } from "../firebaseFunctions"
+import logoImage from "../images/logo-image.png"
 
 
 export const RegisterForm = () => {
@@ -24,7 +25,7 @@ export const RegisterForm = () => {
 
 	return (
 		<div className="container-register">
-			<img className="register-img" src={"./images/logo-image.png"} alt="Burger Queen" />
+			<img className="register-img" src={logoImage} alt="Burger Queen" />
 			<h1 className="form-title">Formulario de registro</h1>
 			<form className="form-reg" onSubmit = { submitForm }>
 				<label htmlFor="userType">

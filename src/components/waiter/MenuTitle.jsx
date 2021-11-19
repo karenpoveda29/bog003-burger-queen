@@ -1,10 +1,12 @@
 import React from "react";
 import "../../styles/menuTitle.css";
 
-export const MenuTitle = (props) => {
+export const MenuTitle = ({ title }) => {
+
   return (
     <div className="menuTitle">
-      <h1>{props.title}</h1>
+       <h1>{ title }</h1>
+  
       <select className="user-table" id="userTable">
         <option value="mesa">Mesa</option>
         <option value="1">Mesa 1</option>
