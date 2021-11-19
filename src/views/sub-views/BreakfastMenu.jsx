@@ -6,7 +6,7 @@ import { ResumeOrder } from "../../components/waiter/ResumeOrder"
 export const BreakfastMenu = () => {
     return (
         <div>
-            <MenuTitle />
+            <MenuTitle title="Menú desayuno"/>
             <MenuBreakfast />
             <ResumeOrder />
         </div>
