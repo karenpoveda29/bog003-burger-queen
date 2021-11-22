@@ -1,13 +1,13 @@
 import React from "react"
 import { MenuTitle } from "../../components/waiter/MenuTitle"
-import { MenuBreakfast } from "../../components/waiter/MenuBreakfast"
+import { Menu } from "../../components/waiter/Menu"
 import { ResumeOrder } from "../../components/waiter/ResumeOrder"
 
-export const BreakfastMenu = () => {
+export const Breakfast = ({ filteredProducts }) => {
     return (
         <div>
             <MenuTitle title = {"Menú desayuno"}/>
-            <MenuBreakfast />
+            <Menu filteredProducts={ filteredProducts }/>
             <ResumeOrder />
         </div>
     )

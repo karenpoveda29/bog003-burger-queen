@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import '../../styles/navBar.css'
 import { logOutUser } from "../../firebaseFunctions"
 import logoIcon from "../../images/BQ.png"
@@ -16,8 +16,6 @@ export const NavBarWaiter = () => {
     logOutUser()
     window.location.pathname = "/login";
   }
-
-  let { path } = useRouteMatch();
 
   return (
     <div className="navBar">
