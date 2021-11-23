@@ -4,72 +4,50 @@
             "id": "1",
             "item": "Café americano",
             "price": 5,
-            "categories": ["breakfast"]
+            "categories": ["breakfast"],
+            "type": "Bebidas"
         },
         {
             "id": "2",
             "item": "Café con leche",
             "price": 7,
-            "categories": ["breakfast"]
+            "categories": ["breakfast"],
+            "type": "Bebidas"
         },
         {
             "id": "3",
-            "item": "Sandwich de jamón y queso",
-            "price": 10,
-            "categories": ["breakfast"]
-        },
-        {
-            "id": "4",
             "item": "Jugo de frutas natural",
             "price": 7,
             "categories": ["breakfast"],
-            "type": "Bebida"
+            "type": "Bebidas"
+        },
+        {
+            "id": "4",
+            "item": "Sandwich de jamón y queso",
+            "price": 10,
+            "categories": ["breakfast"],
+            "type": "Sandwiches"
         },
         {
             "id": "5",
-            "item": "Hamburguesa sencilla",
-            "price": 10,
-            "categories": ["lunch"],
-            "type": "Hamburguesa",
-            "options": [
-                {
-                    "id": "t1",
-                    "item": "Carne",
-                    "price": 0,
-                    "unique": true
-                },
-                {
-                    "id": "t2",
-                    "item": "Pollo",
-                    "price": 0,
-                    "unique": true
-                },
-                {
-                    "id": "t3",
-                    "item": "Vegetariana",
-                    "price": 0,
-                    "unique": true
-                },
-                {
-                    "id": "a2",
-                    "item": "Queso",
-                    "price": 1,
-                    "unique": false
-                },
-                {
-                    "id": "a1",
-                    "item": "Huevo",
-                    "price": 1,
-                    "unique": false
-                }
-            ]
+            "item": "Sandwich de verduras",
+            "price": 15,
+            "categories": ["breakfast"],
+            "type": "Sandwiches"
         },
         {
             "id": "6",
-            "item": "Hamburguesa doble",
-            "price": 15,
+            "item": "Sandwich de pavo",
+            "price": 12,
+            "categories": ["breakfast"],
+            "type": "Sandwiches"
+        },
+        {
+            "id": "7",
+            "item": "Hamburguesa sencilla",
+            "price": 10,
             "categories": ["lunch"],
-            "type": "Hamburguesa",
+            "type": "Hamburguesas",
             "options": [
                 {
                     "id": "t1",
@@ -104,46 +82,85 @@
             ]
         },
         {
-            "id": "7",
+            "id": "8",
+            "item": "Hamburguesa doble",
+            "price": 15,
+            "categories": ["lunch"],
+            "type": "Hamburguesas",
+            "options": [
+                {
+                    "id": "t1",
+                    "item": "Carne",
+                    "price": 0,
+                    "unique": true
+                },
+                {
+                    "id": "t2",
+                    "item": "Pollo",
+                    "price": 0,
+                    "unique": true
+                },
+                {
+                    "id": "t3",
+                    "item": "Vegetariana",
+                    "price": 0,
+                    "unique": true
+                },
+                {
+                    "id": "a2",
+                    "item": "Queso",
+                    "price": 1,
+                    "unique": false
+                },
+                {
+                    "id": "a1",
+                    "item": "Huevo",
+                    "price": 1,
+                    "unique": false
+                }
+            ]
+        },
+        {
+            "id": "9",
             "item": "Papas fritas",
             "price": 5,
             "categories": ["lunch"],
             "type": "Acompañamientos"
         },
         {
-            "id": "8",
+            "id": "10",
             "item": "Aros de cebolla",
             "type": "Acompañamientos",
             "price": 5,
             "categories": ["lunch"]
         },
         {
-            "id": "9",
+            "id": "11",
             "item": "Agua 500ml",
             "price": 5,
             "categories": ["lunch"],
-            "type": "Bebida"
-        },
-        {
-            "id": "10",
-            "item": "Agua 750ml",
-            "price": 7,
-            "categories": ["lunch"],
-            "type": "Bebida"
-        },
-        {
-            "id": "11",
-            "item": "Gaseosa 500ml",
-            "price": 7,
-            "categories": ["lunch"],
-            "type": "Bebida"
+            "type": "Bebidas"
         },
         {
             "id": "12",
+            "item": "Agua 750ml",
+            "price": 7,
+            "categories": ["lunch"],
+            "type": "Bebidas"
+        },
+        {
+            "id": "13",
+            "item": "Gaseosa 500ml",
+            "price": 7,
+            "categories": ["lunch"],
+            "type": "Bebidas"
+        },
+        {
+            "id": "14",
             "item": "Gaseosa 750ml",
             "price": 10,
             "categories": ["lunch"],
-            "type": "Bebida"
+            "type": "Bebidas"
         }   
     ]
 }

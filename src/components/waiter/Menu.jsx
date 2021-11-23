@@ -3,19 +3,21 @@ import "../../styles/menu.css";
 
 //Este componente crea los items del menú
 
-export const Menu = ({ filteredProducts }) => {
+export const Menu = ({ menuProducts, type }) => { //array de objetos con los items de uno de los menús: lunch o breakfast
 
   return (
     <div className="menu">
+      <h2>{ type }</h2>
       <ul>
-        {filteredProducts.map( product => (
+        {menuProducts.filter(product => product.type === type).map( product => (
           <li key={ product.id }>
             <input type="checkbox" />
-            <span>{product.item}</span>
-            <span>$ {product.price}</span>
+            <p>{product.item}</p>
+            <p>$ {product.price}</p>
           </li>
         ))}        
       </ul>
     </div>
   );
 };
+
