@@ -14,16 +14,23 @@ export const Waiter = () => {
 
   //array que recibe los items  que se van seleccionando
   const itemsOrder = [
-    {id:"1", item: "hamburguesa", price: 3, quantity: 6, categories: ["lunch"]},
+    {id:"1", item: "hamburguesa", price: 3, quantity: 2, categories: ["lunch"]},
     {id:"2", item: "agua", price: 5, quantity: 1, categories: ["lunch"]}
   ]
 
-  //cambiar el estado del resumen del pedido
+  //HOOKS
+  //1 cambiar el estado del resumen del pedido
   const [addedProducts, setSummaryProducts] = useState(itemsOrder)
+
+  //calcular el monto total del pedido
+  const totalAmount = addedProducts.reduce((a, b) => {
+    return a + b.price * b.quantity
+  }, 0)
+
 
   //FUNCIONES
   
-  //Funciones para modificar cantidades en resumen de pedido
+  //1.1 Funciones para modificar cantidades en resumen de pedido
   const handleDecrease = (id) => {
     const newSummary = addedProducts.map((item) => {
       if(item.id === id){
@@ -81,7 +88,10 @@ export const Waiter = () => {
             summaryProducts={filterProducts(addedProducts, "breakfast")}
             onDecrease={(id) => handleDecrease(id)}
             onIncrease={(id) => handleIncrease(id)}
-            onDelete={(id) => handleDelete(id)}  
+            onDelete={(id) => handleDelete(id)}
+            total={ totalAmount }   
+            itemsOrder={ itemsOrder }
+            cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
           />
         </Route>
         <Route path={`${path}/burgers-menu`}>
@@ -93,6 +103,9 @@ export const Waiter = () => {
             onDecrease={(id) => handleDecrease(id)}
             onIncrease={(id) => handleIncrease(id)}
             onDelete={(id) => handleDelete(id)}
+            total={ totalAmount }
+            itemsOrder={ itemsOrder }
+            cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
           />
         </Route>
       </Switch>

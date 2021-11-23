@@ -1,11 +1,11 @@
 import React from 'react'
 
-export function TotalOrder() {
+export function TotalOrder({ total }) {
   return (
     <div>
-      <h3 className="total">Total: 70.000 </h3>
+      <h3 className="total">Total: ${total}</h3>
     </div>
-  )
-}
+  );
+};
 
  

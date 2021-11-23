@@ -10,18 +10,22 @@ export const TakingOrders =
       menuProducts, 
       category, 
       summaryProducts,
-      onIncrease, onDecrease, onDelete
+      onIncrease, onDecrease, onDelete,
+      total,
+      cancelButton,
+      itemsOrder
     }) => {
 
     return (
-        <div>
+      <div>
         <MenuTitle title = { title }/>
-        {category === "breakfast" ? 
+        {category === "breakfast" 
+          ? 
             <div>
                 <Menu menuProducts={ menuProducts } type="Bebidas"/>
                 <Menu menuProducts={ menuProducts } type="Sandwiches"/>
             </div>
-            : 
+          : 
             <div>
                 <Menu menuProducts={ menuProducts } type="Bebidas"/>
                 <Menu menuProducts={ menuProducts } type="Hamburguesas"/>
@@ -34,8 +38,13 @@ export const TakingOrders =
           onIncrease={ onIncrease } 
           onDelete={ onDelete } 
         />
-        <TotalOrder />
-        <OrdersButtons />
-        </div>
+        { summaryProducts.length >=  1 
+        ? 
+          <TotalOrder total={ total }/> 
+        : 
+          <TotalOrder total={ 0 }/>
+        }
+        <OrdersButtons cancelButton={ cancelButton } itemsOrder={ itemsOrder }/>
+      </div>
     );
 };

@@ -10,6 +10,7 @@ export const OrderSummary = ({ summaryProducts, onIncrease, onDecrease, onDelete
         {summaryProducts.map((product) => (
           <li key={product.id}>
             <p>{product.item}</p>
+            <p>$ {product.price}</p>
             <button onClick={() => onDecrease(product.id)}>-</button>
             <span>{product.quantity}</span>
             <button onClick={() => onIncrease(product.id)}>+</button>
