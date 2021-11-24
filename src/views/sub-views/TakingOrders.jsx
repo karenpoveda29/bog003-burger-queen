@@ -17,7 +17,7 @@ export const TakingOrders =
     }) => {
 
     return (
-      <div>
+      <div className="order-block">
         <MenuTitle title = { title }/>
         {category === "breakfast" 
           ? 

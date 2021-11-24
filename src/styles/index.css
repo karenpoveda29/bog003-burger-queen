@@ -17,6 +17,9 @@ body {
   padding: 0;
   line-height: 1.3;
 }
+.order-block {
+  padding-left: 10rem;
+}
 
 h1, p {
   margin: 0;

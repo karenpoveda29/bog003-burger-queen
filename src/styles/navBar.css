@@ -6,6 +6,9 @@
   justify-content: space-evenly;
   width: 15%;
   border-right: 2px solid var(--main-color2); 
+      position: fixed;
+    background-color: #fff;
+    top: 0;
 }
 
 .navBar .logo-text {
@@ -17,6 +20,9 @@
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
+}
+.home-view{
+  display: block;
 }
 
 /* .navBar .pending-order {

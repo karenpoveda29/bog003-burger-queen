@@ -11,10 +11,10 @@ export const OrderSummary = ({ summaryProducts, onIncrease, onDecrease, onDelete
           <li key={product.id}>
             <p>{product.item}</p>
             <p>$ {product.price}</p>
-            <button onClick={() => onDecrease(product.id)}>-</button>
+            <button className="less-btn" onClick={() => onDecrease(product.id)}>-</button>
             <span>{product.quantity}</span>
-            <button onClick={() => onIncrease(product.id)}>+</button>
-            <img src={deleteIcon} alt="Borrar" onClick={() => onDelete(product.id)}/>
+            <button  className="plus-btn" onClick={() => onIncrease(product.id)}>+</button>
+            <img id="deleteBtn" src={deleteIcon} alt="Borrar" onClick={() => onDelete(product.id)}/>
           </li>
         ))}
       </ul>
