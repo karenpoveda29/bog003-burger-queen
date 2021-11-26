@@ -1,4 +1,5 @@
-import { fbConfig } from "./fb"
+import { fbConfig, db } from "./fb"
+
 
 export const registerUser = (userName, email, password) => {
   fbConfig.auth()
@@ -16,3 +17,13 @@ export const loginUser = (email, password) => {
 };
 
 export const logOutUser = () => fbConfig.auth().signOut();
+
+export const createOrder = (userName, tableNumber) => {
+  db.collection('orders').add({
+    client: userName,
+    table: tableNumber,
+    createdAt: fbConfig.firestore.FieldValue.serverTimestamp(),
+  });
+};
+
+
