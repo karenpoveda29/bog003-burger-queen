@@ -20,9 +20,9 @@ export const logOutUser = () => fbConfig.auth().signOut();
 
 export const createOrder = (userName, tableNumber) => {
   db.collection('orders').add({
-    client: userName,
     table: tableNumber,
-    createdAt: fbConfig.firestore.FieldValue.serverTimestamp(),
+    client: userName,
+    // createdAt: fbConfig.firestore.FieldValue.serverTimestamp(),
   });
 };
 

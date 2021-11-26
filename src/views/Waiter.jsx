@@ -86,7 +86,7 @@ export const Waiter = () => {
             menuProducts={filterProducts(products, "breakfast")}
             category="breakfast"
             summaryProducts={filterProducts(addedProducts, "breakfast")}
-            onDecrease={(id) => handleDecrease(id)}
+            onDecrease={handleDecrease}
             onIncrease={(id) => handleIncrease(id)}
             onDelete={(id) => handleDelete(id)}
             total={ totalAmount }   
