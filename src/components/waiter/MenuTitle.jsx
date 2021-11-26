@@ -1,15 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../styles/menuTitle.css";
-import { createOrder } from "../../firebaseFunctions";
 
-export const MenuTitle = ({ title }) => {
+export const MenuTitle = ({ title, customer, setCostumer }) => {
 
-  const [customer, setCostumer] = useState({
-    table:'',
-    clientName:''
-  })
-  
-  return (
+    return (
     <div className="menuTitle">
        <h1>{ title }</h1>
       
