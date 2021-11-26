@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { MenuTitle } from "../../components/waiter/MenuTitle"
 import { Menu } from "../../components/waiter/Menu"
 import { OrderSummary } from "../../components/waiter/OrderSummary"
@@ -16,9 +16,15 @@ export const TakingOrders =
       itemsOrder
     }) => {
 
+      const [customer, setCostumer] = useState({
+        table:'',
+        clientName:''
+      })
+
+
     return (
       <div className="order-block">
-        <MenuTitle title = { title }/>
+        <MenuTitle title = { title } customer={ customer } setCostumer = { setCostumer } />
         {category === "breakfast" 
           ? 
             <div>
@@ -44,7 +50,7 @@ export const TakingOrders =
         : 
           <TotalOrder total={ 0 }/>
         }
-        <OrdersButtons cancelButton={ cancelButton } itemsOrder={ itemsOrder }/>
+        <OrdersButtons cancelButton={ cancelButton } itemsOrder={ itemsOrder } customer={ customer }/>
       </div>
     );
 };
