@@ -1,35 +1,19 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../styles/menuTitle.css";
+import { createOrder } from "../../firebaseFunctions";
 
 export const MenuTitle = ({ title }) => {
 
-  const customerData = {
+  const [customer, setCostumer] = useState({
     table:'',
-    name:''
-  }
-  const [customer, setCostumer] = useState({customerData})
-
-  const handleData =(e)=>{
-
-      //  const {name, value} = e.target
-      //  console.log(name, value);
-
-    //const customerData = {table: e.target.tagName === '', name: e.target.value}
-    console.log(e.target);
-    //setCostumer(customerData)
-    // console.log(newCustomer);
-    //console.log(setCostumerData(newCustomer));
-    
-    // e.preventDefault();
-    // console.log(e.target.value);
-  }
-  console.log(customer)
-
+    clientName:''
+  })
+  
   return (
     <div className="menuTitle">
        <h1>{ title }</h1>
       
-      <select className="user-table" id="userTable" name="table" onChange = {handleData}>
+      <select className="user-table" id="userTable" name="table" onChange={(e)=>{setCostumer({...customer, table: e.target.value})}}>
         <option value="mesa">Mesa</option>
         <option value="1">Mesa 1</option>
         <option value="2">Mesa 2</option>
@@ -48,7 +32,8 @@ export const MenuTitle = ({ title }) => {
         placeholder="Nombre y apellido"
         required
         name="name"
-        onChange = {handleData}
+        value={customer.clientName}
+        onChange = {(e)=>setCostumer({...customer, clientName: e.target.value})}
       ></input>
       
     </div>
