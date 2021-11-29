@@ -18,7 +18,7 @@ export const TakingOrders =
     }) => {
 
     return (
-      <div className="order-block">
+      <main className="order-block">
         <MenuTitle title = { title } customer={ customer } setCustomer = { setCustomer } />
         {category === "breakfast" 
           ? 
@@ -46,6 +46,6 @@ export const TakingOrders =
           <TotalOrder total={ 0 }/>
         }
         <OrdersButtons customer={ customer }/>
-      </div>
+      </main>
     );
 };

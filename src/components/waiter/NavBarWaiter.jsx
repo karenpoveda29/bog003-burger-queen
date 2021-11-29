@@ -18,7 +18,7 @@ export const NavBarWaiter = () => {
   }
 
   return (
-    <div className="navBar">
+    <nav className="navBar">
       {/* <img className="arrowClose" src={"./images/flecha-cerrar.png"} alt="Flecha Cerrar Menu" /> */}
       <img className="logo-text" src={logoIcon} alt="Burger Queen" />
       <h2>Menús</h2>
@@ -45,6 +45,6 @@ export const NavBarWaiter = () => {
           onClick = { logOut }
           className="logout" src={logoutIcon} alt="cerrar sesión" />
       </div>
-    </div>
+    </nav>
   );
 };

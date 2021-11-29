@@ -15,7 +15,7 @@ export const NavBarChef = () => {
 
 
   return (
-    <div className="navBar">
+    <nav className="navBar">
       {/* <img className="arrowClose" src={"./images/flecha-cerrar.png"} alt="Flecha Cerrar Menu" /> */}
       <img className="logo-text" src={logoIcon} alt="Burger Queen" />
       {/* <h2 className="pending-order">Pedidos pendientes</h2> */}
@@ -33,6 +33,6 @@ export const NavBarChef = () => {
           className="logout" src={logoutIcon} alt="cerrar sesión"
         />
       </div>
-    </div>
+    </nav>
   );
 };
