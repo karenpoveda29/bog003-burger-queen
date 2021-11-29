@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { MenuTitle } from "../../components/waiter/MenuTitle"
 import { Menu } from "../../components/waiter/Menu"
 import { OrderSummary } from "../../components/waiter/OrderSummary"
@@ -10,12 +10,15 @@ export const TakingOrders =
       menuProducts, 
       category, 
       summaryProducts,
+      setSummaryProducts,
       onIncrease, onDecrease, onDelete,
-      total,
-      customer,
-      setCustomer
-
+      total 
     }) => {
+
+    const [customer, setCustomer] = useState({
+      table:'',
+      clientName:''
+      })
 
     return (
       <main className="order-block">
@@ -23,14 +26,14 @@ export const TakingOrders =
         {category === "breakfast" 
           ? 
             <div>
-                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Bebidas"/>
-                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Sandwiches"/>
+                <Menu menuProducts={ menuProducts } summaryProducts={ summaryProducts } setSummaryProducts = { setSummaryProducts } type="Bebidas"/>
+                <Menu menuProducts={ menuProducts } summaryProducts={ summaryProducts } setSummaryProducts = { setSummaryProducts } type="Sandwiches"/>
             </div>
           : 
             <div>
-                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Bebidas"/>
-                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Hamburguesas"/>
-                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Acompañamientos"/>
+                <Menu menuProducts={ menuProducts } summaryProducts={ summaryProducts } setSummaryProducts = { setSummaryProducts } type="Bebidas"/>
+                <Menu menuProducts={ menuProducts } summaryProducts={ summaryProducts } setSummaryProducts = { setSummaryProducts } type="Hamburguesas"/>
+                <Menu menuProducts={ menuProducts } summaryProducts={ summaryProducts } setSummaryProducts = { setSummaryProducts } type="Acompañamientos"/>
             </div> 
         }
         <OrderSummary 
@@ -45,7 +48,7 @@ export const TakingOrders =
         : 
           <TotalOrder total={ 0 }/>
         }
-        <OrdersButtons customer={ customer }/>
+        <OrdersButtons customer={ customer } summaryProducts = { summaryProducts }/>
       </main>
     );
 };
