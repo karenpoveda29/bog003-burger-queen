@@ -6,6 +6,7 @@ export function OrdersButtons( {customer, summaryProducts} ) {
   const handleSendKitchen = (customerInfo) =>{
 
     createOrder(customerInfo.table, customerInfo.clientName, summaryProducts)
+    
   }
 
   return (
