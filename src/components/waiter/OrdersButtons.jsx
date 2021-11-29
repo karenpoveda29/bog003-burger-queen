@@ -1,11 +1,11 @@
 import React from 'react'
 import { createOrder } from "../../firebaseFunctions";
 
-export function OrdersButtons( {customer} ) {
+export function OrdersButtons( {customer, summaryProducts} ) {
 
   const handleSendKitchen = (customerInfo) =>{
 
-    createOrder(customerInfo.table, customerInfo.clientName, customerInfo.itemsOrder)
+    createOrder(customerInfo.table, customerInfo.clientName, summaryProducts)
   }
 
   return (

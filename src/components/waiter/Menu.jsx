@@ -5,12 +5,11 @@ import { v4 as uuidv4 } from 'uuid';
 
 //Este componente crea los items del menú
 
-export const Menu = ({ menuProducts, type, customer, setCustomer}) => { //array de objetos con los items de uno de los menús: lunch o breakfast
+export const Menu = ({ menuProducts, type, summaryProducts, setSummaryProducts}) => { //array de objetos con los items de uno de los menús: lunch o breakfast
 
-  // console.log('menu productos',menuProducts);
   const handlerChange = (e)=>{
     if (e.target.checked === true){
-      const newCustomer = {...customer}
+      const newSummary = [...summaryProducts]
       const newItem = {id:uuidv4(), item: e.target.value, price: 0, quantity: 1, categories: []}
       
       menuProducts.forEach(product => {
@@ -20,14 +19,15 @@ export const Menu = ({ menuProducts, type, customer, setCustomer}) => { //array 
        }
       });
       
-      newCustomer.itemsOrder.push(newItem)
-      setCustomer(newCustomer)
+      newSummary.push(newItem)
+      setSummaryProducts(newSummary)
 
     } else {
-      const newCustomer = {...customer}
-      newCustomer.itemsOrder = customer.itemsOrder.filter((product)=> product.item !== e.target.value)
-      setCustomer(newCustomer)
+      const newSummary = [...summaryProducts]
+      newSummary.filter((product)=> product.item !== e.target.value)
+      setSummaryProducts(newSummary)
     }
+    console.log('summaryProducts- menu', summaryProducts);
   }
 
   return (

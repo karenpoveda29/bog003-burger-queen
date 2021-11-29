@@ -19,18 +19,19 @@ export const Waiter = () => {
   // ]
 
   //HOOKS
-   //1 tomar datos del pedido
+  /*  //1 tomar datos del pedido
    const [customer, setCustomer] = useState({
     table:'',
     clientName:'',
     itemsOrder:[]
-   })
+   }) */
+
   //2 cambiar el estado del resumen del pedido
-  const [addedProducts, setSummaryProducts] = useState(customer.itemsOrder)
-  console.log(addedProducts);
+  const [summaryProducts, setSummaryProducts] = useState([])
+  console.log('summaryProducts- resumen', summaryProducts);
 
   //calcular el monto total del pedido
-  const totalAmount = addedProducts.reduce((a, b) => {
+  const totalAmount = summaryProducts.reduce((a, b) => {
     return a + b.price * b.quantity
   }, 0)
 
@@ -40,7 +41,7 @@ export const Waiter = () => {
   
   //1.1 Funciones para modificar cantidades en resumen de pedido
   const handleDecrease = (id) => {
-    const newSummary = addedProducts.map((item) => {
+    const newSummary = summaryProducts.map((item) => {
       if(item.id === id){
         /* if(item.quantity > 1){
           return {...item, quantity: item.quantity - 1}
@@ -55,7 +56,7 @@ export const Waiter = () => {
   }
 
   const handleIncrease = (id) => {
-    const newSummary = addedProducts.map((item) => {
+    const newSummary = summaryProducts.map((item) => {
       if(item.id === id){
         return {...item, quantity: item.quantity + 1}
       } else {
@@ -66,7 +67,7 @@ export const Waiter = () => {
   }
 
   const handleDelete = (id) => {
-    const newSummary = addedProducts.filter((item) => {
+    const newSummary = summaryProducts.filter((item) => {
       return item.id !== id
     })
     setSummaryProducts(newSummary)
@@ -93,13 +94,12 @@ export const Waiter = () => {
             title={"Menú desayuno"} 
             menuProducts={filterProducts(products, "breakfast")}
             category="breakfast"
-            summaryProducts={filterProducts(addedProducts, "breakfast")}
+            summaryProducts={filterProducts(summaryProducts, "breakfast")}
+            setSummaryProducts={setSummaryProducts}
             onDecrease={handleDecrease}
             onIncrease={(id) => handleIncrease(id)}
             onDelete={(id) => handleDelete(id)}
-            total={ totalAmount } 
-            customer = {customer}
-            setCustomer = {setCustomer}  
+            total={ totalAmount }   
             // itemsOrder={ itemsOrder }
             // cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
           />
@@ -109,13 +109,12 @@ export const Waiter = () => {
             title={"Menú resto del día"}
             menuProducts={filterProducts(products, "lunch")}
             category="lunch"
-            summaryProducts={filterProducts(addedProducts, "lunch")}
+            summaryProducts={filterProducts(summaryProducts, "lunch")}
+            setSummaryProducts={setSummaryProducts}
             onDecrease={(id) => handleDecrease(id)}
             onIncrease={(id) => handleIncrease(id)}
             onDelete={(id) => handleDelete(id)}
-            total={ totalAmount }
-            customer = {customer}
-            setCustomer = {setCustomer} 
+            total={ totalAmount } 
             // itemsOrder={ itemsOrder }
             // cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
           />
