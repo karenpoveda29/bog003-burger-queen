@@ -18,7 +18,7 @@ export const TakingOrders =
     const [customer, setCustomer] = useState({
       table:'',
       clientName:''
-      })
+    })
 
     return (
       <main className="order-block">
