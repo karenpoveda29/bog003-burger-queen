@@ -18,11 +18,11 @@ export const loginUser = (email, password) => {
 
 export const logOutUser = () => fbConfig.auth().signOut();
 
-export const createOrder = (userName, tableNumber) => {
+export const createOrder = (tableNumber, userName, clientOrder) => {
   db.collection('orders').add({
     table: tableNumber,
     client: userName,
-    // createdAt: fbConfig.firestore.FieldValue.serverTimestamp(),
+    order: clientOrder
   });
 };
 

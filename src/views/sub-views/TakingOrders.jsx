@@ -16,26 +16,26 @@ export const TakingOrders =
       itemsOrder
     }) => {
 
-      const [customer, setCostumer] = useState({
+      const [customer, setCustomer] = useState({
         table:'',
-        clientName:''
+        clientName:'',
+        itemsOrder:[]
       })
-
 
     return (
       <div className="order-block">
-        <MenuTitle title = { title } customer={ customer } setCostumer = { setCostumer } />
+        <MenuTitle title = { title } customer={ customer } setCustomer = { setCustomer } />
         {category === "breakfast" 
           ? 
             <div>
-                <Menu menuProducts={ menuProducts } type="Bebidas"/>
-                <Menu menuProducts={ menuProducts } type="Sandwiches"/>
+                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Bebidas"/>
+                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Sandwiches"/>
             </div>
           : 
             <div>
-                <Menu menuProducts={ menuProducts } type="Bebidas"/>
-                <Menu menuProducts={ menuProducts } type="Hamburguesas"/>
-                <Menu menuProducts={ menuProducts } type="Acompañamientos"/>
+                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Bebidas"/>
+                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Hamburguesas"/>
+                <Menu menuProducts={ menuProducts } customer={ customer } setCustomer = { setCustomer } type="Acompañamientos"/>
             </div> 
         }
         <OrderSummary 

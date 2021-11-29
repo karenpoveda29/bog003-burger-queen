@@ -1,13 +1,13 @@
 import React from "react";
 import "../../styles/menuTitle.css";
 
-export const MenuTitle = ({ title, customer, setCostumer }) => {
+export const MenuTitle = ({ title, customer, setCustomer }) => {
 
     return (
     <div className="menuTitle">
        <h1>{ title }</h1>
       
-      <select className="user-table" id="userTable" name="table" onChange={(e)=>{setCostumer({...customer, table: e.target.value})}}>
+      <select className="user-table" id="userTable" name="table" onChange={(e)=>{setCustomer({...customer, table: e.target.value})}}>
         <option value="mesa">Mesa</option>
         <option value="1">Mesa 1</option>
         <option value="2">Mesa 2</option>
@@ -27,7 +27,7 @@ export const MenuTitle = ({ title, customer, setCostumer }) => {
         required
         name="name"
         value={customer.clientName}
-        onChange = {(e)=>setCostumer({...customer, clientName: e.target.value})}
+        onChange = {(e)=>setCustomer({...customer, clientName: e.target.value})}
       ></input>
       
     </div>
