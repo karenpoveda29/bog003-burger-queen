@@ -1,15 +1,25 @@
 import React from "react";
 import "../../styles/menu.css";
+import { v4 as uuidv4 } from 'uuid';
+
 
 //Este componente crea los items del menú
 
 export const Menu = ({ menuProducts, type, customer, setCustomer}) => { //array de objetos con los items de uno de los menús: lunch o breakfast
 
+  // console.log('menu productos',menuProducts);
   const handlerChange = (e)=>{
     if (e.target.checked === true){
-      
       const newCustomer = {...customer}
-      const newItem = {item: e.target.value, price: 10}
+      const newItem = {id:uuidv4(), item: e.target.value, price: 0, quantity: 1, categories: []}
+      
+      menuProducts.forEach(product => {
+       if(product.item === e.target.value){
+          newItem.price = product.price
+          newItem.categories = product.categories
+       }
+      });
+      
       newCustomer.itemsOrder.push(newItem)
       setCustomer(newCustomer)
 

@@ -13,19 +13,27 @@ import data from "../data/menu.json"
 export const Waiter = () => {
 
   //array que recibe los items  que se van seleccionando
-  const itemsOrder = [
-    {id:"1", item: "hamburguesa", price: 3, quantity: 2, categories: ["lunch"]},
-    {id:"2", item: "agua", price: 5, quantity: 1, categories: ["lunch"]}
-  ]
+  // const itemsOrder = [
+  //   {id:"1", item: "hamburguesa", price: 3, quantity: 2, categories: ["lunch"]},
+  //   {id:"2", item: "agua", price: 5, quantity: 1, categories: ["lunch"]}
+  // ]
 
   //HOOKS
-  //1 cambiar el estado del resumen del pedido
-  const [addedProducts, setSummaryProducts] = useState(itemsOrder)
+   //1 tomar datos del pedido
+   const [customer, setCustomer] = useState({
+    table:'',
+    clientName:'',
+    itemsOrder:[]
+   })
+  //2 cambiar el estado del resumen del pedido
+  const [addedProducts, setSummaryProducts] = useState(customer.itemsOrder)
+  console.log(addedProducts);
 
   //calcular el monto total del pedido
   const totalAmount = addedProducts.reduce((a, b) => {
     return a + b.price * b.quantity
   }, 0)
+
 
 
   //FUNCIONES
@@ -89,9 +97,11 @@ export const Waiter = () => {
             onDecrease={handleDecrease}
             onIncrease={(id) => handleIncrease(id)}
             onDelete={(id) => handleDelete(id)}
-            total={ totalAmount }   
-            itemsOrder={ itemsOrder }
-            cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
+            total={ totalAmount } 
+            customer = {customer}
+            setCustomer = {setCustomer}  
+            // itemsOrder={ itemsOrder }
+            // cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
           />
         </Route>
         <Route path={`${path}/burgers-menu`}>
@@ -104,8 +114,10 @@ export const Waiter = () => {
             onIncrease={(id) => handleIncrease(id)}
             onDelete={(id) => handleDelete(id)}
             total={ totalAmount }
-            itemsOrder={ itemsOrder }
-            cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
+            customer = {customer}
+            setCustomer = {setCustomer} 
+            // itemsOrder={ itemsOrder }
+            // cancelButton= { (itemsOrder) => setSummaryProducts(itemsOrder) }
           />
         </Route>
       </Switch>
