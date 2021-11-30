@@ -5,14 +5,14 @@ import { v4 as uuidv4 } from 'uuid';
 
 //Este componente crea los items del menú
 
-export const Menu = ({ menuProducts, type, summaryProducts, setSummaryProducts}) => { //array de objetos con los items de uno de los menús: lunch o breakfast
+export const Menu = ({ menuProducts, type, summaryProducts, setSummaryProducts, hamburgerType, setShowModalWindow}) => { //array de objetos con los items de uno de los menús: lunch o breakfast
 
   const handlerSelectProduct = (e)=>{
     const item = summaryProducts.find(product => product.item === e.target.innerText)
     if(!item){
-  
+      
       const newSummary = [...summaryProducts]
-      const newItem = {id:uuidv4(), item: e.target.innerText, price: 0, quantity: 1, categories: []}
+      const newItem = {id:uuidv4(), item: `${e.target.innerText} ${hamburgerType}`, price: 0, quantity: 1, categories: []}
       
       menuProducts.forEach(product => {
         if(product.item === e.target.innerText){
@@ -21,8 +21,17 @@ export const Menu = ({ menuProducts, type, summaryProducts, setSummaryProducts})
         }
       });
       
-      newSummary.push(newItem)
-      setSummaryProducts(newSummary)
+      if(e.target.innerText.includes("Hamburguesa")){
+        setShowModalWindow(true)
+        newSummary.push(newItem)
+        setSummaryProducts(newSummary)
+        console.log(newItem)
+      }else{
+        newSummary.push(newItem)
+        setSummaryProducts(newSummary)
+      }
+
+      
     }
   };
 

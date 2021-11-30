@@ -15,11 +15,11 @@ export const ProfileSelection = () => {
           <h1 className="profile-selection-title">Selecciona tu perfil</h1>
           <div className="profile-choices">
             <div className="waiter">
-                <img onClick = { goPath("/waiter") } className="waiter-img" src={waiterImage} alt="Mesero" />
+                <img onClick = { () => goPath("/waiter") } className="waiter-img" src={waiterImage} alt="Mesero" />
                 <p className="waiter-text">Mesero</p>
             </div>
             <div className="chef">
-                <img onClick = { goPath("/home-chef") } className="chef-img" src={kitchenImage} alt="Cocina" />
+                <img onClick = { () => goPath("/home-chef") } className="chef-img" src={kitchenImage} alt="Cocina" />
                 <p className="chef-text">Cocina</p>
             </div>
           </div>
