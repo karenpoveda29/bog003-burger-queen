@@ -7,12 +7,19 @@ padding: 0;
 margin: 0;
 }
 .menu ul li {
+  border-radius: 20px;
   list-style: none;
-  display: grid;
-grid-template-columns: 1fr 3fr 1fr;
-grid-template-rows: 1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+  background-color: #F7D266;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 2rem 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.menu ul li p{
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .menu input{
@@ -30,3 +37,4 @@ hr {
     border: 1px solid var(--main-color2);
     width: 100%;
 }
+
