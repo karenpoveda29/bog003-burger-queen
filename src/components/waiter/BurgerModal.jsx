@@ -1,26 +1,29 @@
-import React from 'react'
+import React, { useState } from "react";
 
-export function BurgerModal({ sethamburgerType, setShowModalWindow }) {
-  
-  const handleBurgerOption = (e) => {
+export default function BurgerModal({ options, onClose, onAddOptions }) {
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedAddons, setSelectedAddons] = useState(null);
 
-    sethamburgerType(e.target.value)
-  }
   return (
-    <div onClick={handleBurgerOption}>
+    <div>
       <h3>soy una ventana modal</h3>
-      <input type="radio" name="burgerOption" id="burgerOption1" value="pollo"/>
-      <label htmlFor="burgerOption1">Pollo</label>
 
-      <input type="radio" name="burgerOption" id="burgerOption2" value="carne"/>
-      <label htmlFor="burgerOption2">Carne</label>
+      {options
+        .filter((option) => option.unique)
+        .map((option) => (
+          <div>
+            <input
+              type="radio"
+              name={option.category}
+              id={`${option.category}-${option.item}`}
+              value={option.id}
+            />
+            <label htmlFor={`${option.category}-${option.item}`}>{option.item}</label>
+          </div>
+        ))}
 
-      <input type="radio" name="burgerOption" id="burgerOption3" value="vegetariana"/>
-      <label htmlFor="burgerOption3">Vegetariana</label>
 
-      <button onClick={() => setShowModalWindow(false)}>X</button>
+      <button>X</button>
     </div>
-  )
+  );
 }
-
-

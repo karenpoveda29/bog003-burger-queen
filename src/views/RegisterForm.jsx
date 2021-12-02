@@ -17,9 +17,12 @@ export const RegisterForm = () => {
 		const email = e.target.inputEmail.value;
 		const password = e.target.inputPassword.value;
 
-		registerUser(userName, email, password)
-		setShowMessageOk(true)
-		setTimeout(() => window.location.pathname = "/login", 2000);
+		registerUser(userName, email, password).then(() => {
+			setShowMessageOk(true)
+			setTimeout(() => window.location.pathname = "/login", 2000);
+		}).catch(() => {
+			
+		})
 			
 	}
 
