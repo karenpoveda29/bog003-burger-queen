@@ -2,13 +2,14 @@ import React from "react";
 import { createOrder } from "../../firebaseFunctions";
 
 export function OrdersButtons({
-  customer,
+  clientName,
+  clientTable,
   summaryProducts,
   menuProducts,
   total,
   onCancelOrder
 }) {
-  const handleSendKitchen = (customerInfo) => {
+  const handleSendKitchen = () => {
     const finalOrder = summaryProducts.map(summaryProduct => {
       const menuProduct = menuProducts.find(
         (menuProduct) => menuProduct.id === summaryProduct.id
@@ -23,8 +24,8 @@ export function OrdersButtons({
     });
 
     createOrder(
-      customerInfo.table,
-      customerInfo.clientName,
+      clientTable,
+      clientName,
       finalOrder,
       total
     );
@@ -35,7 +36,7 @@ export function OrdersButtons({
       <button className="btn-cancel" onClick={onCancelOrder}>Cancelar pedido</button>
       <button
         className="btn-sendKitchen"
-        onClick={() => handleSendKitchen(customer)}
+        onClick={handleSendKitchen}
       >
         Enviar a cocina
       </button>

@@ -1,14 +1,13 @@
 import React from "react";
 import "../../styles/menuTitle.css";
 
-export const MenuTitle = ({ title, onObtainClientTable, onObtainClientName }) => {
-
+export const MenuTitle = ({ title, onObtainClientTable, onObtainClientName, clientName,
+  clientTable, }) => {
     return (
     <div className="menuTitle">
        <h1>{ title }</h1>
-      
       <select className="user-table" id="userTable" name="table" onChange={(e)=>onObtainClientTable(e.target.value)}>
-        <option defaultValue>Mesa</option>
+        <option selected>Mesa</option>
         <option value="1">Mesa 1</option>
         <option value="2">Mesa 2</option>
         <option value="3">Mesa 3</option>
@@ -26,6 +25,7 @@ export const MenuTitle = ({ title, onObtainClientTable, onObtainClientName }) =>
         placeholder="Nombre y apellido"
         required
         name="name"
+        value={clientName}
         onChange = {(e)=>onObtainClientName(e.target.value)}
       ></input>
       

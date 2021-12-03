@@ -7,16 +7,18 @@ import { OrdersButtons } from "../../components/waiter/OrdersButtons";
 /* import { BurgerModal } from '../../components/waiter/BurgerModal' */
 
 export const TakingOrders = ({ title, menuProducts }) => {
-  const [customer, setCustomer] = useState({});
 
+  const [clientTable, setClientTable] = useState("");
+  const [clientName, setClientName] = useState("");
   const [summaryProducts, setSummaryProducts] = useState([]);
 
   //Obtener los tipos de productos para el renderizado del menú
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
+  //PENDIENTE!!!!!
   const handleCancelOrder = () => {
-    console.log("si me ejecuto")
-    setCustomer({});
+    setClientTable("")
+    setClientName("")
     setSummaryProducts([]);
   };
 
@@ -28,13 +30,12 @@ export const TakingOrders = ({ title, menuProducts }) => {
   const total = prices.reduce((acumulador, price) => acumulador + price, 0);
 
   //FUNCIONES
-
   const handleObtainClientTable = (table) => {
-    setCustomer({...customer, table})
-  }
+    setClientTable(table);
+  };
   const handleObtainClientName = (clientName) => {
-    setCustomer({...customer, clientName})
-  }
+    setClientName(clientName);
+  };
 
   const handleAddProductToSummary = (id) => {
     if (summaryProducts.filter((product) => product.id === id).length === 0) {
@@ -77,7 +78,13 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   return (
     <main className="order-block">
-      <MenuTitle title={title} onObtainClientTable={handleObtainClientTable} onObtainClientName={handleObtainClientName}/>
+      <MenuTitle
+        title={title}
+        onObtainClientTable={handleObtainClientTable}
+        onObtainClientName={handleObtainClientName}
+        clientTable={clientTable}
+        clientName={clientName}
+      />
 
       {menuTypes.map((type) => (
         <Menu
@@ -97,7 +104,8 @@ export const TakingOrders = ({ title, menuProducts }) => {
       />
       <TotalOrder total={total} />
       <OrdersButtons
-        customer={customer}
+        clientTable={clientTable}
+        clientName={clientName}
         summaryProducts={summaryProducts}
         menuProducts={menuProducts}
         total={total}
