@@ -19,7 +19,9 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   //FUNCIONES
   const handleAddProductToSummary = (id) => {
-    setSummaryProducts([...summaryProducts, { id, quantity: 1 }]);
+    if(summaryProducts.filter(product => product.id === id).length === 0){
+      setSummaryProducts([...summaryProducts, { id, quantity: 1 }]);
+    }
   };
 
   //Funciones para modificar cantidades en resumen de pedido
