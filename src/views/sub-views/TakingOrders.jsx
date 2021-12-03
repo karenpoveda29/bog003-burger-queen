@@ -7,19 +7,37 @@ import { OrdersButtons } from "../../components/waiter/OrdersButtons";
 /* import { BurgerModal } from '../../components/waiter/BurgerModal' */
 
 export const TakingOrders = ({ title, menuProducts }) => {
-  const [customer, setCustomer] = useState({
-    table: "",
-    clientName: "",
-  });
+  const [customer, setCustomer] = useState({});
 
-  //cambiar el estado del resumen del pedido
   const [summaryProducts, setSummaryProducts] = useState([]);
 
+  //Obtener los tipos de productos para el renderizado del menú
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
+  const handleCancelOrder = () => {
+    console.log("si me ejecuto")
+    setCustomer({});
+    setSummaryProducts([]);
+  };
+
+  //Calcular el total de la orden
+  const prices = summaryProducts.map(({ id, quantity }) => {
+    const menuProduct = menuProducts.find((product) => product.id === id);
+    return menuProduct.price * quantity;
+  });
+  const total = prices.reduce((acumulador, price) => acumulador + price, 0);
+
   //FUNCIONES
+
+  const handleObtainClientTable = (table) => {
+    setCustomer({...customer, table})
+  }
+  const handleObtainClientName = (clientName) => {
+    setCustomer({...customer, clientName})
+  }
+
   const handleAddProductToSummary = (id) => {
-    if(summaryProducts.filter(product => product.id === id).length === 0){
+    if (summaryProducts.filter((product) => product.id === id).length === 0) {
       setSummaryProducts([...summaryProducts, { id, quantity: 1 }]);
     }
   };
@@ -59,7 +77,7 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   return (
     <main className="order-block">
-      <MenuTitle title={title} customer={customer} setCustomer={setCustomer} />
+      <MenuTitle title={title} onObtainClientTable={handleObtainClientTable} onObtainClientName={handleObtainClientName}/>
 
       {menuTypes.map((type) => (
         <Menu
@@ -77,11 +95,14 @@ export const TakingOrders = ({ title, menuProducts }) => {
         onIncrease={handleIncrease}
         onDelete={handleDelete}
       />
-      <TotalOrder
+      <TotalOrder total={total} />
+      <OrdersButtons
+        customer={customer}
         summaryProducts={summaryProducts}
         menuProducts={menuProducts}
+        total={total}
+        onCancelOrder={handleCancelOrder}
       />
-      <OrdersButtons customer={customer} summaryProducts={summaryProducts} />
     </main>
   );
 };

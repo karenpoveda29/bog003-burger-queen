@@ -18,11 +18,12 @@ export const loginUser = (email, password) => {
 
 export const logOutUser = () => fbConfig.auth().signOut();
 
-export const createOrder = (tableNumber, userName, clientOrder) => {
+export const createOrder = (tableNumber, userName, clientOrder, totalAmount) => {
   db.collection('orders').add({
     table: tableNumber,
     client: userName,
-    order: clientOrder
+    order: clientOrder,
+    total: totalAmount
   });
 };
 

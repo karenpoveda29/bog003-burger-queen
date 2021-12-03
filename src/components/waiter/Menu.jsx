@@ -11,8 +11,11 @@ export const Menu = ({ menuProducts, type, onAddproduct }) => {
       <ul>
         {menuProducts.map((product) => (
           <li key={product.id}>
-            <p onClick={() => onAddproduct(product.id)}>{product.item}</p>
-            <p>$ {product.price}</p>
+            <button onClick={() => onAddproduct(product.id)}>
+             {/*  <img src={process.env.PUBLIC_URL+product.image} alt={product.iem} /> */}
+              <p>{product.item}</p>
+              <p>$ {product.price}</p>
+            </button>
           </li>
         ))}
       </ul>
