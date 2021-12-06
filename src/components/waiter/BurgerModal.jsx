@@ -49,4 +49,3 @@ export default function BurgerModal({ options, onClose, onAddOptions }) {
     </div>
   );
 }
-

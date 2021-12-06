@@ -20,11 +20,7 @@ export const OrderSummary = ({
           );
           return (
             <li key={summaryProduct.id}>
-              {menuProduct.options !== undefined && (
-                <button className="options" onClick={onShowModal}>
-                  Escoge tus opciones
-                </button>
-              )}
+              {menuProduct.options !== undefined && <button className="options" onClick={onShowModal} >Escoge tus opciones</button>}
               <p>{menuProduct.item}</p>
               <p>$ {menuProduct.price}</p>
               <button

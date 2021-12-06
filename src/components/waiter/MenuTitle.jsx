@@ -6,7 +6,7 @@ export const MenuTitle = ({ title, onObtainClientTable, onObtainClientName, clie
     return (
     <div className="menuTitle">
        <h1>{ title }</h1>
-      <select className="user-table" id="userTable" name="table" value={clientTable} onChange={(e)=>onObtainClientTable(e.target.value)}>
+      <select className="user-table" id="userTable" name="table" value={ clientTable } onChange={(e)=>onObtainClientTable(e.target.value)}>
         <option value="-1" disabled>Mesa</option>
         <option value="1">Mesa 1</option>
         <option value="2">Mesa 2</option>
