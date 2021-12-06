@@ -8,16 +8,15 @@ import { OrdersButtons } from "../../components/waiter/OrdersButtons";
 
 export const TakingOrders = ({ title, menuProducts }) => {
 
-  const [clientTable, setClientTable] = useState("");
+  const [clientTable, setClientTable] = useState("-1");
   const [clientName, setClientName] = useState("");
   const [summaryProducts, setSummaryProducts] = useState([]);
 
   //Obtener los tipos de productos para el renderizado del menú
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
-  //PENDIENTE!!!!!
   const handleCancelOrder = () => {
-    setClientTable("")
+    setClientTable("-1")
     setClientName("")
     setSummaryProducts([]);
   };
@@ -87,7 +86,7 @@ export const TakingOrders = ({ title, menuProducts }) => {
       />
 
       {menuTypes.map((type) => (
-        <Menu
+        <Menu key={type}
           menuProducts={menuProducts.filter((product) => product.type === type)}
           type={type}
           summaryProducts={summaryProducts}
