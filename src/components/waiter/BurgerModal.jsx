@@ -1,26 +1,52 @@
-import React from 'react'
+import React, { useState } from "react";
 
-export function BurgerModal({ sethamburgerType, setShowModalWindow }) {
-  
-  const handleBurgerOption = (e) => {
+export default function BurgerModal({ options, onClose, onAddOptions }) {
 
-    sethamburgerType(e.target.value)
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedAddons, setSelectedAddons] = useState([]);
+
+  const handleObtainSelectedAddons = (addons)=>{
+    setSelectedAddons([...selectedAddons, {addons}])
   }
+
   return (
-    <div onClick={handleBurgerOption}>
-      <h3>soy una ventana modal</h3>
-      <input type="radio" name="burgerOption" id="burgerOption1" value="pollo"/>
-      <label htmlFor="burgerOption1">Pollo</label>
+    <div>
+      <h3>Escoger tus opciones</h3>
 
-      <input type="radio" name="burgerOption" id="burgerOption2" value="carne"/>
-      <label htmlFor="burgerOption2">Carne</label>
-
-      <input type="radio" name="burgerOption" id="burgerOption3" value="vegetariana"/>
-      <label htmlFor="burgerOption3">Vegetariana</label>
-
-      <button onClick={() => setShowModalWindow(false)}>X</button>
+      {options
+        .filter((option) => option.unique)
+        .map((option) => (
+          <div  key={option.id}>
+            <input 
+              type="radio"
+              name={option.category}
+              id={`${option.category}-${option.item}`}
+              value={selectedOption}
+              onChange={()=>setSelectedOption(option.id)}
+             
+            />
+            <label htmlFor={`${option.category}-${option.item}`}>{option.item}</label>
+          </div>
+        ))
+      }
+      {options 
+        .filter((option) => !option.unique)
+        .map((option) => (
+        <div  key={option.id}>
+          <input
+            type="checkbox"
+            name={option.item}
+            id={option.item}
+            value={selectedAddons}
+            onClick={()=>handleObtainSelectedAddons(option.id)}
+          />
+          <label htmlFor={option.item}>{option.item}</label>
+        </div>
+      ))
+      }
+      <button>X</button>
+      <button>Agregar</button>
     </div>
-  )
+  );
 }
-
 

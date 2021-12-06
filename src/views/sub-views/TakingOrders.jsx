@@ -8,7 +8,7 @@ import { OrdersButtons } from "../../components/waiter/OrdersButtons";
 
 export const TakingOrders = ({ title, menuProducts }) => {
 
-  const [clientTable, setClientTable] = useState("");
+  const [clientTable, setClientTable] = useState("-1");
   const [clientName, setClientName] = useState("");
   const [summaryProducts, setSummaryProducts] = useState([]);
 
@@ -17,7 +17,7 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   //PENDIENTE!!!!!
   const handleCancelOrder = () => {
-    setClientTable("")
+    setClientTable("-1")
     setClientName("")
     setSummaryProducts([]);
   };
@@ -87,7 +87,7 @@ export const TakingOrders = ({ title, menuProducts }) => {
       />
 
       {menuTypes.map((type) => (
-        <Menu
+        <Menu key={type}
           menuProducts={menuProducts.filter((product) => product.type === type)}
           type={type}
           summaryProducts={summaryProducts}
