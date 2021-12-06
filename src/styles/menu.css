@@ -1,6 +1,7 @@
 .menu {
   width: 50%;
   display: inline-block;
+  margin-top: 3%;
 }
 .menu ul {
 padding: 0;
@@ -9,10 +10,11 @@ margin: 0;
 .menu ul li {
   list-style: none;
   display: grid;
-grid-template-columns: 1fr 3fr 1fr;
-grid-template-rows: 1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin-left: 15%;
 }
 
 .menu input{
@@ -29,4 +31,23 @@ grid-row-gap: 0px;
 hr {
     border: 1px solid var(--main-color2);
     width: 100%;
+}
+
+/*******cambios recientes*********/
+
+.types-title-menu {
+  text-align: left;
+  margin-left: 15%;
+}
+
+button {
+  background: none;
+  border: 1px solid var(--main-color2);
+  border-radius: 15px;
+}
+
+.item-menu { 
+  display: flex;
+  text-align: left;
+  font-size: 1rem;
 }

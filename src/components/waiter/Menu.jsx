@@ -7,14 +7,16 @@ export const Menu = ({ menuProducts, type, onAddproduct }) => {
   
   return (
     <div className="menu">
-      <h2>{type}</h2>
+      <h2 className="types-title-menu">{type}</h2>
       <ul>
         {menuProducts.map((product) => (
           <li key={product.id}>
             <button onClick={() => onAddproduct(product.id)}>
              {/*  <img src={process.env.PUBLIC_URL+product.image} alt={product.iem} /> */}
+             <div className="item-menu">
               <p>{product.item}</p>
               <p>$ {product.price}</p>
+             </div>
             </button>
           </li>
         ))}
