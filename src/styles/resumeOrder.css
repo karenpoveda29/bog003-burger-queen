@@ -1,5 +1,5 @@
 .resume-order {
-    margin-top: 10%;
+    margin-top: 5%;
     border-top: 2px solid var(--main-color2);
 }
 .resume-order ul{
@@ -32,12 +32,12 @@
 padding-right:3rem;
 text-transform: capitalize;
 }
-.less-btn{
+/* .less-btn{
 
 }
 .plus-btn{
 
-}
+} */
 
 h2{
     color: var(--main-color1);
