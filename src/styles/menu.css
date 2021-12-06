@@ -40,14 +40,20 @@ hr {
   margin-left: 15%;
 }
 
-button {
+.menu-item p{
+  font-size: 1rem;
+}
+
+.menu-item-btn {
   background: none;
   border: 1px solid var(--main-color2);
   border-radius: 15px;
+  padding: 1rem;
+  cursor: pointer;
+  /* display: flex;
+  justify-content: center; */
 }
 
-.item-menu { 
-  display: flex;
-  text-align: left;
-  font-size: 1rem;
-}
+/* .menu-item-name{
+  margin-right: 1rem;
+} */
