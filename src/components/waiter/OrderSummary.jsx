@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/resumeOrder.css";
 import deleteIcon from "../../images/delete.png";
 
-export const OrderSummary = ({ summaryProducts, menuProducts, onIncrease, onDecrease, onDelete }) => {
+export const OrderSummary = ({ summaryProducts, menuProducts, onIncrease, onDecrease, onDelete, onShowModal }) => {
   return (
     <div className="resume-order">
       <h2 className="resume-title">Resumen del pedido</h2>
@@ -11,6 +11,7 @@ export const OrderSummary = ({ summaryProducts, menuProducts, onIncrease, onDecr
           const menuProduct = menuProducts.find(menuProduct => menuProduct.id === summaryProduct.id)
           return (
             <li key={summaryProduct.id}>
+              {menuProduct.options !== undefined && <button className="options" onClick={onShowModal} >Escoge tus opciones</button>}
               <p>{menuProduct.item}</p>
               <p>$ {menuProduct.price}</p>
               <button className="less-btn" onClick={() => onDecrease(summaryProduct.id)}>-</button>
