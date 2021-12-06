@@ -4,7 +4,7 @@ import { Menu } from "../../components/waiter/Menu";
 import { OrderSummary } from "../../components/waiter/OrderSummary";
 import { TotalOrder } from "../../components/waiter/TotalOrder";
 import { OrdersButtons } from "../../components/waiter/OrdersButtons";
-import { BurgerModal } from "../../components/waiter/BurgerModal";
+//import { BurgerModal } from "../../components/waiter/BurgerModal";
 
 export const TakingOrders = ({
   title,

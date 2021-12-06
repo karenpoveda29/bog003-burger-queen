@@ -15,6 +15,14 @@ export const Menu = ({
 }) => {
   const [ showModalId, setShowModalId ] = useState(null);
   //array de objetos con los items de uno de los menús: lunch o breakfast
+
+  //FUNCIONES
+  // const handleObtainOption = (clientName) => {
+  //   setClientName(clientName);
+  // };
+
+
+
   return (
     <div className="menu">
       <h2>{type}</h2>
