@@ -15,6 +15,7 @@ export const TakingOrders = ({ title, menuProducts }) => {
   //Obtener los tipos de productos para el renderizado del menú
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
+  //PENDIENTE!!!!!
   const handleCancelOrder = () => {
     setClientTable("-1")
     setClientName("")

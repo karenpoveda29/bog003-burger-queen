@@ -1,45 +1,18 @@
-import React, {useState} from "react";
-
-import BurgerModal from "./BurgerModal";
+import React from "react";
 import "../../styles/menu.css";
 
 //Este componente crea los items del menú
 
-export const Menu = ({
-  products,
-  type,
-  summaryProducts,
-  onAddProduct,
-  hamburgerType,
-  setShowModalWindow,
-}) => {
+export const Menu = ({ menuProducts, type, onAddproduct }) => {
   
-  //array de objetos con los items de uno de los menús: lunch o breakfast
-
-  //FUNCIONES
-  // const handleObtainOption = (clientName) => {
-  //   setClientName(clientName);
-  // };
-
-
-
   return (
     <div className="menu">
       <h2>{type}</h2>
       <ul>
-        {products.map((product) => (
+        {menuProducts.map((product) => (
           <li key={product.id}>
-            
-            <button
-              onClick={() => onAddProduct(product.id) }
-              style={{ width: "300px" }}
-            >
-              <img
-                src={product.image}
-                alt={product.item}
-                style={{ width: "100%" }}
-              />
-              {/* <input type="checkbox" value = { product.item } onChange={handlerChange}/> */}
+            <button onClick={() => onAddproduct(product.id)}>
+             {/*  <img src={process.env.PUBLIC_URL+product.image} alt={product.iem} /> */}
               <p>{product.item}</p>
               <p>$ {product.price}</p>
             </button>
@@ -49,13 +22,3 @@ export const Menu = ({
     </div>
   );
 };
-
-// showModalId === product.id &&
-// (
-//   <BurgerModal
-//     options={product.options}
-//     onClose={() => {}}
-//     onAddOptions={() => {}}
-//   />
-// )
-// onClick={() => { product.options ? setShowModalId(product.id) : onAddProduct(product.id) }}
