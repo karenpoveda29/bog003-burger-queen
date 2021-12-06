@@ -13,7 +13,7 @@ export const Menu = ({
   hamburgerType,
   setShowModalWindow,
 }) => {
-  const [ showModalId, setShowModalId ] = useState(null);
+  
   //array de objetos con los items de uno de los menús: lunch o breakfast
 
   //FUNCIONES
@@ -29,15 +29,9 @@ export const Menu = ({
       <ul>
         {products.map((product) => (
           <li key={product.id}>
-            {product.options !== undefined && showModalId === product.id && (
-              <BurgerModal
-                options={product.options}
-                onClose={() => {}}
-                onAddOptions={() => {}}
-              />
-            )}
+            
             <button
-              onClick={() => { product.options ? setShowModalId(product.id) : onAddProduct(product.id) }}
+              onClick={() => onAddProduct(product.id) }
               style={{ width: "300px" }}
             >
               <img
@@ -55,3 +49,13 @@ export const Menu = ({
     </div>
   );
 };
+
+// showModalId === product.id &&
+// (
+//   <BurgerModal
+//     options={product.options}
+//     onClose={() => {}}
+//     onAddOptions={() => {}}
+//   />
+// )
+// onClick={() => { product.options ? setShowModalId(product.id) : onAddProduct(product.id) }}
