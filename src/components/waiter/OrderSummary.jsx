@@ -10,7 +10,6 @@ export const OrderSummary = ({
   onDelete,
   onShowModal,
 }) => {
-  console.log("summary products", summaryProducts)
   return (
     <div className="resume-order">
       <h2 className="resume-title">Resumen del pedido</h2>

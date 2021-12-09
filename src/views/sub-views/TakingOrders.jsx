@@ -43,6 +43,7 @@ export const TakingOrders = ({ title, menuProducts }) => {
     }
   };
 
+  //FUNCIONES MODAL OPCIONES
   const handleShowModal = (id) => {
     setId(id);
     setShowModal(true);
@@ -51,6 +52,11 @@ export const TakingOrders = ({ title, menuProducts }) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+
+  const handleAddOptions = () => {
+    
+  }
+
 
   //Funciones para modificar cantidades en resumen de pedido
   const handleDecrease = (id) => {

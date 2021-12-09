@@ -52,18 +52,21 @@
                 {
                     "id": "t1",
                     "item": "Carne",
+                    "category": "PROTEIN",
                     "price": 0,
                     "unique": true
                 },
                 {
                     "id": "t2",
                     "item": "Pollo",
+                    "category": "PROTEIN",
                     "price": 0,
                     "unique": true
                 },
                 {
                     "id": "t3",
                     "item": "Vegetariana",
+                    "category": "PROTEIN",
                     "price": 0,
                     "unique": true
                 },
@@ -91,18 +94,21 @@
                 {
                     "id": "t1",
                     "item": "Carne",
+                    "category": "PROTEIN",
                     "price": 0,
                     "unique": true
                 },
                 {
                     "id": "t2",
                     "item": "Pollo",
+                    "category": "PROTEIN",
                     "price": 0,
                     "unique": true
                 },
                 {
                     "id": "t3",
                     "item": "Vegetariana",
+                    "category": "PROTEIN",
                     "price": 0,
                     "unique": true
                 },
