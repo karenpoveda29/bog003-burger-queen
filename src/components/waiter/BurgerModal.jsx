@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 
-export default function BurgerModal({ options, onClose, onAddOptions }) {
+export function BurgerModal({ menuProducts, id, onCloseModal/* , onAddOptions  */ }) {
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
+  console.log('selectedOption:', selectedOption)
   const [selectedAddons, setSelectedAddons] = useState([]);
+  console.log('selectedAddons:', selectedAddons)
+  
 
   const handleObtainSelectedAddons = (addons)=>{
     setSelectedAddons([...selectedAddons, {addons}])
   }
+  const selectedProduct = menuProducts.find(product => product.id === id)
+  const options = selectedProduct.options
+  console.log(options)
 
   return (
     <div>
-      <h3>Escoger tus opciones</h3>
-
-      {options
-        .filter((option) => option.unique)
-        .map((option) => (
+      <h3>Escoge tus opciones</h3>
+      { options
+        .filter( option => option.unique)
+        .map(option => (
           <div  key={option.id}>
             <input 
               type="radio"
@@ -30,8 +35,8 @@ export default function BurgerModal({ options, onClose, onAddOptions }) {
         ))
       }
       {options 
-        .filter((option) => !option.unique)
-        .map((option) => (
+        .filter(option => !option.unique)
+        .map(option => (
         <div  key={option.id}>
           <input
             type="checkbox"
@@ -44,8 +49,8 @@ export default function BurgerModal({ options, onClose, onAddOptions }) {
         </div>
       ))
       }
-      <button>X</button>
-      <button>Agregar</button>
+      <button onClick={onCloseModal}>X</button>
+      <button /* onAddOptions={onAddOptions} */>Agregar</button>
     </div>
   );
 }

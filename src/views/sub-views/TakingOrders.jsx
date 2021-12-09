@@ -4,21 +4,21 @@ import { Menu } from "../../components/waiter/Menu";
 import { OrderSummary } from "../../components/waiter/OrderSummary";
 import { TotalOrder } from "../../components/waiter/TotalOrder";
 import { OrdersButtons } from "../../components/waiter/OrdersButtons";
-/* import { BurgerModal } from '../../components/waiter/BurgerModal' */
+import { BurgerModal } from "../../components/waiter/BurgerModal";
 
 export const TakingOrders = ({ title, menuProducts }) => {
-
   const [clientTable, setClientTable] = useState("-1");
   const [clientName, setClientName] = useState("");
   const [summaryProducts, setSummaryProducts] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [id, setId] = useState("");
 
   //Obtener los tipos de productos para el renderizado del menú
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
-  //PENDIENTE!!!!!
   const handleCancelOrder = () => {
-    setClientTable("-1")
-    setClientName("")
+    setClientTable("-1");
+    setClientName("");
     setSummaryProducts([]);
   };
 
@@ -41,6 +41,15 @@ export const TakingOrders = ({ title, menuProducts }) => {
     if (summaryProducts.filter((product) => product.id === id).length === 0) {
       setSummaryProducts([...summaryProducts, { id, quantity: 1 }]);
     }
+  };
+
+  const handleShowModal = (id) => {
+    setId(id);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
 
   //Funciones para modificar cantidades en resumen de pedido
@@ -87,20 +96,28 @@ export const TakingOrders = ({ title, menuProducts }) => {
       />
 
       {menuTypes.map((type) => (
-        <Menu key={type}
+        <Menu
+          key={type}
           menuProducts={menuProducts.filter((product) => product.type === type)}
           type={type}
           summaryProducts={summaryProducts}
           onAddproduct={handleAddProductToSummary}
         />
       ))}
-
+      {showModal && (
+        <BurgerModal
+          menuProducts={menuProducts}
+          id={id}
+          onCloseModal={handleCloseModal}
+        />
+      )}
       <OrderSummary
         summaryProducts={summaryProducts}
         menuProducts={menuProducts}
         onDecrease={handleDecrease}
         onIncrease={handleIncrease}
         onDelete={handleDelete}
+        onShowModal={handleShowModal}
       />
       <TotalOrder total={total} />
       <OrdersButtons
