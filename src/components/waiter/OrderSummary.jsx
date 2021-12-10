@@ -9,6 +9,8 @@ export const OrderSummary = ({
   onDecrease,
   onDelete,
   onShowModal,
+  selectedOption, 
+  selectedAddons
 }) => {
   return (
     <div className="resume-order">
@@ -20,7 +22,7 @@ export const OrderSummary = ({
           );
           return (
             <li key={summaryProduct.id}>
-              {menuProduct.options !== undefined && <button className="options" onClick={() => onShowModal(summaryProduct.id)} >Escoge tus opciones</button>}
+              {menuProduct.options !== undefined && <button className="options" onClick={() => onShowModal(summaryProduct.id) } >Escoge tus opciones</button>}
               <p>{menuProduct.item}</p>
               <p>$ {menuProduct.price}</p>
               <button
@@ -42,6 +44,7 @@ export const OrderSummary = ({
                 alt="Borrar"
                 onClick={() => onDelete(summaryProduct.id)}
               />
+              
             </li>
           );
         })}

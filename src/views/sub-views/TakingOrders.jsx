@@ -11,7 +11,15 @@ export const TakingOrders = ({ title, menuProducts }) => {
   const [clientName, setClientName] = useState("");
   const [summaryProducts, setSummaryProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  //el id del producto que abrió la modal 
   const [id, setId] = useState("");
+  //guardar los id de las opciones seleccionadas modal
+  const [selectedOption, setSelectedOption] = useState("");
+  console.log("selectedOption:", selectedOption);
+  const [selectedAddons, setSelectedAddons] = useState([]);
+  console.log("selectedAddons:", selectedAddons);
+
+   
 
   //Obtener los tipos de productos para el renderizado del menú
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
@@ -53,9 +61,22 @@ export const TakingOrders = ({ title, menuProducts }) => {
     setShowModal(false);
   };
 
-  const handleAddOptions = () => {
+    //Funciones para tomar y guardar las opciones y adiciones
+  const handleObtainSelectedOption = (id) => {
+    setSelectedOption(id);
+  };
+
+  const handleObtainSelectedAddons = (e, id) => {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+      setSelectedAddons([...selectedAddons, id]);
+    } else {
+      setSelectedAddons(selectedAddons.filter((addOn) => addOn !== id));
+    }
+  };
+  /* const handleAddOptions = () => {
     
-  }
+  } */
 
 
   //Funciones para modificar cantidades en resumen de pedido
@@ -115,6 +136,8 @@ export const TakingOrders = ({ title, menuProducts }) => {
           menuProducts={menuProducts}
           id={id}
           onCloseModal={handleCloseModal}
+          onObtainSelectedOption={handleObtainSelectedOption}
+          onObtainSelectedAddons={handleObtainSelectedAddons}
         />
       )}
       <OrderSummary
