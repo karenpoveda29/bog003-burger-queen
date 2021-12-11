@@ -14,6 +14,18 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
+  const prices = summaryProducts.map(({ id, quantity }) => {
+    const menuProduct = menuProducts.find((product) => product.id === id);
+    return menuProduct.price * quantity;
+  });
+  const total = prices.reduce((acumulador, price) => acumulador + price, 0);
+
+  const handleCancelOrder = () => {
+    setClientTable("-1")
+    setClientName("")
+    setSummaryProducts([])
+  }
+
   const handleObtainClientTable = (table) => {
     setClientTable(table)
   }
@@ -63,12 +75,12 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   return (
     <main className="order-block">
-      <MenuTitle 
-       title={title}
-       clientTable={clientTable}
-       clientName={clientName}
-       onObtainClientTable={handleObtainClientTable} 
-       onObtainClientName={handleObtainClientName} />
+      <MenuTitle
+        title={title}
+        clientTable={clientTable}
+        clientName={clientName}
+        onObtainClientTable={handleObtainClientTable}
+        onObtainClientName={handleObtainClientName} />
       {/* {showModalWindow === true && (
         <BurgerModal
           sethamburgerType={sethamburgerType}
@@ -93,8 +105,15 @@ export const TakingOrders = ({ title, menuProducts }) => {
         onIncrease={handleIncrease}
         onDelete={handleDelete}
       />
-      <TotalOrder menuProducts={menuProducts} summaryProducts={summaryProducts} />
-      <OrdersButtons summaryProducts={summaryProducts} />
+      <TotalOrder total={total} />
+      <OrdersButtons
+        clientTable={clientTable}
+        clientName={clientName}
+        summaryProducts={summaryProducts}
+        menuProducts={menuProducts}
+        total={total}
+        onCancelOrder={handleCancelOrder}
+      />
     </main>
   );
 };
