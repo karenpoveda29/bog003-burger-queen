@@ -6,17 +6,21 @@ import { TotalOrder } from "../../components/waiter/TotalOrder";
 import { OrdersButtons } from "../../components/waiter/OrdersButtons";
 //import { BurgerModal } from "../../components/waiter/BurgerModal";
 
-export const TakingOrders = ({
-  title,
-  menuProducts
-}) => {
-  const [customer, setCustomer] = useState({
-    table: "",
-    clientName: "",
-  });
+export const TakingOrders = ({ title, menuProducts }) => {
+
+  const [clientTable, setClientTable] = useState("-1")
+  const [clientName, setClientName] = useState("")
   const [summaryProducts, setSummaryProducts] = useState([])
 
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
+
+  const handleObtainClientTable = (table) => {
+    setClientTable(table)
+  }
+
+  const handleObtainClientName = (clientName) => {
+    setClientName(clientName)
+  }
 
   const handleAddProductToSummary = (id) => {
     if (summaryProducts.filter(product => product.id === id).length === 0) {
@@ -26,23 +30,23 @@ export const TakingOrders = ({
 
   const handleDecrease = (id) => {
     const newSummary = summaryProducts.map((item) => {
-      if(item.id === id){
+      if (item.id === id) {
         /* if(item.quantity > 1){
           return {...item, quantity: item.quantity - 1}
         } */
-        return { ...item, quantity: Math.max(item.quantity - 1 ,1)}
+        return { ...item, quantity: Math.max(item.quantity - 1, 1) }
       } else {
         return item
       }
-      
+
     })
     setSummaryProducts(newSummary)
   }
 
   const handleIncrease = (id) => {
     const newSummary = summaryProducts.map((item) => {
-      if(item.id === id){
-        return {...item, quantity: item.quantity + 1}
+      if (item.id === id) {
+        return { ...item, quantity: item.quantity + 1 }
       } else {
         return item
       }
@@ -59,7 +63,12 @@ export const TakingOrders = ({
 
   return (
     <main className="order-block">
-      <MenuTitle title={title} customer={customer} setCustomer={setCustomer} />
+      <MenuTitle 
+       title={title}
+       clientTable={clientTable}
+       clientName={clientName}
+       onObtainClientTable={handleObtainClientTable} 
+       onObtainClientName={handleObtainClientName} />
       {/* {showModalWindow === true && (
         <BurgerModal
           sethamburgerType={sethamburgerType}
@@ -69,6 +78,7 @@ export const TakingOrders = ({
 
       {menuTypes.map((type) => (
         <Menu
+          key={type}
           products={menuProducts.filter((product) => product.type === type)}
           summaryProducts={summaryProducts}
           onAddProduct={handleAddProductToSummary}
@@ -83,8 +93,8 @@ export const TakingOrders = ({
         onIncrease={handleIncrease}
         onDelete={handleDelete}
       />
-      <TotalOrder  menuProducts={menuProducts} summaryProducts={summaryProducts} />
-      <OrdersButtons customer={customer} summaryProducts={summaryProducts} />
+      <TotalOrder menuProducts={menuProducts} summaryProducts={summaryProducts} />
+      <OrdersButtons summaryProducts={summaryProducts} />
     </main>
   );
 };

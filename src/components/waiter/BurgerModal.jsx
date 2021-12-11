@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function BurgerModal({ options, onClose, onAddOptions }) {
 
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("");
   const [selectedAddons, setSelectedAddons] = useState([]);
 
   const handleObtainSelectedAddons = (addons)=>{
