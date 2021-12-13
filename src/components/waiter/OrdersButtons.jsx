@@ -17,7 +17,7 @@ export function OrdersButtons({
       return {
         category: menuProduct.categories,
         id: summaryProduct.id,
-        item: `${menuProduct.item} ${summaryProduct.protein}, ${summaryProduct.addOns}`, 
+        item: `${menuProduct.item} ${summaryProduct.protein}, ${summaryProduct.addOns.map((addOn)=>addOn.addOnName).join(" ")}`, 
         price: menuProduct.price,
         quantity: summaryProduct.quantity,
       };

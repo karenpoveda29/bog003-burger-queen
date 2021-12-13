@@ -14,8 +14,9 @@ export default function BurgerModal({
  
   return (
     <div>
-      <h3>soy una ventana modal</h3>
-
+      <div>
+      <h3>Personaliza tu hamburguesa</h3>
+      
       {options.filter((option) => option.unique)
         .map((option) =>
           <div key={option.id}>
@@ -27,46 +28,15 @@ export default function BurgerModal({
       {options.filter((option) => !option.unique)
         .map((option) =>
           <div key={option.id}>
-            <button value={selectedAddons} onClick={() => onObtainSelectedAddons(option.item)}>
-              {option.item}
+            <button value={selectedAddons} onClick={() => onObtainSelectedAddons({addOnName: option.item, addOnPrice: option.price})}>
+            {`${option.item} $${option.price}`}
             </button>
           </div>
         )}
-      {/* {options
-        .filter((option) => option.unique)
-        .map((option) => (
-          <div  key={option.id}>
-            <input 
-              type="radio"
-              name={option.category}
-              id={`${option.category}-${option.item}`}
-              value={selectedOption}
-              onChange={()=>setSelectedOption(option.id)}
-             
-            />
-            <label htmlFor={`${option.category}-${option.item}`}>{option.item}</label>
-          </div>
-        ))
-      }
-      {options 
-        .filter((option) => !option.unique)
-        .map((option) => (
-        <div  key={option.id}>
-          <input
-            type="checkbox"
-            name={option.item}
-            id={option.item}
-            value={selectedAddons}
-            onClick={()=>handleObtainSelectedAddons(option.id)}
-          />
-          <label htmlFor={option.item}>{option.item}</label>
-        </div>
-      ))
-      } */}
       <button onClick={onClose}>X</button>
       <button onClick={()=>{onAddProduct(productId); onClose();} }>Agregar</button>
+      </div>
     </div>
   );
 }
 
-// onClick={()=>onAddProduct(options.id)}

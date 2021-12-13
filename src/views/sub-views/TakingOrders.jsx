@@ -17,9 +17,10 @@ export const TakingOrders = ({ title, menuProducts }) => {
 
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
-  const prices = summaryProducts.map(({ id, quantity }) => {
+  const prices = summaryProducts.map(({ id, quantity, addOns}) => {
     const menuProduct = menuProducts.find((product) => product.id === id);
-    return menuProduct.price * quantity;
+    const addonsPrice = addOns.reduce((acumulador, addOn)=>acumulador + addOn.addOnPrice ,0)
+    return (menuProduct.price + addonsPrice) * quantity ;
   });
   const total = prices.reduce((acumulador, price) => acumulador + price, 0);
 
@@ -38,23 +39,23 @@ export const TakingOrders = ({ title, menuProducts }) => {
   }
 
   const handleAddProductToSummary = (id) => {
-    if (summaryProducts.filter(product => product.id === id).length === 0) {
-      setSummaryProducts([...summaryProducts, { id, quantity: 1, protein:selectedOption, addOns: selectedAddons }])
-    }
+    // if (summaryProducts.filter((product) => product.id === id).length === 0) {}
+      setSummaryProducts([...summaryProducts, { id, quantity: 1, protein:selectedOption, addOns: selectedAddons}]);
+    
     setSelectedOption("")
     setSelectedAddons([])
+  };
+
+  const handleObtainSelectedOptions = (optionName)=>{
+     setSelectedOption(optionName)
   }
 
-  const handleObtainSelectedOptions = (id)=>{
-     setSelectedOption(id)
-  }
+  const handleObtainSelectedAddons = ({addOnName, addOnPrice})=>{
 
-  const handleObtainSelectedAddons = (id)=>{
-
-    if(selectedAddons.filter((addonsId)=>addonsId === id).length === 0){
-      setSelectedAddons([...selectedAddons, id])
+    if(selectedAddons.filter((addOn)=>addOn.addOnName === addOnName.addOnName).length === 0){
+      setSelectedAddons([...selectedAddons, {addOnName, addOnPrice}])
     }else {
-      const deleteAddon = selectedAddons.filter((addonsId)=>addonsId !== id)
+      const deleteAddon = selectedAddons.filter((addOn)=>addOn.addOnName !== addOnName.addOnName)
       setSelectedAddons(deleteAddon)
     }
   }
