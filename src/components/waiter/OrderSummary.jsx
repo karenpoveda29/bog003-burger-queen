@@ -11,7 +11,7 @@ export const OrderSummary = ({ summaryProducts, menuProducts, onIncrease, onDecr
           const menuProduct = menuProducts.find(menuProduct => menuProduct.id === product.id);
           return (
             <li key={product.id}>
-              <p>{menuProduct.item} {product.protein} {product.addOns}</p>
+              <p>{`${menuProduct.item} ${product.protein} ${product.addOns.join(" ")}`}</p>
               <p>$ {menuProduct.price}</p>
               <button className="less-btn" onClick={() => onDecrease(product.id)}>-</button>
               <span>{product.quantity}</span>

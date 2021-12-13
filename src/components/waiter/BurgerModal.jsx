@@ -64,7 +64,7 @@ export default function BurgerModal({
       ))
       } */}
       <button onClick={onClose}>X</button>
-      <button onClick={()=>onAddProduct(productId)}>Agregar</button>
+      <button onClick={()=>{onAddProduct(productId); onClose();} }>Agregar</button>
     </div>
   );
 }

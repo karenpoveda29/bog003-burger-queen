@@ -38,7 +38,6 @@ export const TakingOrders = ({ title, menuProducts }) => {
   }
 
   const handleAddProductToSummary = (id) => {
-    console.log(summaryProducts)
     if (summaryProducts.filter(product => product.id === id).length === 0) {
       setSummaryProducts([...summaryProducts, { id, quantity: 1, protein:selectedOption, addOns: selectedAddons }])
     }
@@ -106,7 +105,6 @@ export const TakingOrders = ({ title, menuProducts }) => {
         <Menu
           key={type}
           products={menuProducts.filter((product) => product.type === type)}
-          summaryProducts={summaryProducts}
           onAddProduct={handleAddProductToSummary}
           type={type}
           selectedOption={selectedOption}

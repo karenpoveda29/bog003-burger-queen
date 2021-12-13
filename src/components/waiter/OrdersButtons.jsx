@@ -17,7 +17,7 @@ export function OrdersButtons({
       return {
         category: menuProduct.categories,
         id: summaryProduct.id,
-        item: menuProduct.item,
+        item: `${menuProduct.item} ${summaryProduct.protein}, ${summaryProduct.addOns}`, 
         price: menuProduct.price,
         quantity: summaryProduct.quantity,
       };
@@ -36,7 +36,7 @@ export function OrdersButtons({
       <button className="btn-cancel" onClick={onCancelOrder}>Cancelar pedido</button>
       <button
         className="btn-sendKitchen"
-        onClick={handleSendKitchen}
+        onClick={()=>{handleSendKitchen(); onCancelOrder();}}
       >
         Enviar a cocina
       </button>
