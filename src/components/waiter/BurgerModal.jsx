@@ -1,19 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function BurgerModal({ options, onClose, onAddOptions }) {
+export default function BurgerModal({ 
+  options, 
+  onClose, 
+  selectedOption, 
+  selectedAddons, 
+  onObtainSelectedOptions, 
+  onObtainSelectedAddons ,
+  onAddProduct,
+  productId
+ }) {
 
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedAddons, setSelectedAddons] = useState([]);
-
-  const handleObtainSelectedAddons = (addons)=>{
-    setSelectedAddons([...selectedAddons, {addons}])
-  }
-
+ 
   return (
     <div>
       <h3>soy una ventana modal</h3>
 
-      {options
+      {options.filter((option) => option.unique)
+        .map((option) =>
+          <div key={option.id}>
+            <button value={selectedOption} onClick={() => onObtainSelectedOptions(option.item)}>
+              {option.item}
+            </button>
+          </div>
+        )}
+      {options.filter((option) => !option.unique)
+        .map((option) =>
+          <div key={option.id}>
+            <button value={selectedAddons} onClick={() => onObtainSelectedAddons(option.item)}>
+              {option.item}
+            </button>
+          </div>
+        )}
+      {/* {options
         .filter((option) => option.unique)
         .map((option) => (
           <div  key={option.id}>
@@ -43,9 +62,11 @@ export default function BurgerModal({ options, onClose, onAddOptions }) {
           <label htmlFor={option.item}>{option.item}</label>
         </div>
       ))
-      }
-      <button>X</button>
-      <button>Agregar</button>
+      } */}
+      <button onClick={onClose}>X</button>
+      <button onClick={()=>onAddProduct(productId)}>Agregar</button>
     </div>
   );
 }
+
+// onClick={()=>onAddProduct(options.id)}

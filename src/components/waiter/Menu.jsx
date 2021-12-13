@@ -8,18 +8,21 @@ import "../../styles/menu.css";
 export const Menu = ({
   products,
   type,
-  summaryProducts,
   onAddProduct,
-  hamburgerType,
-  setShowModalWindow,
+  selectedOption,
+  selectedAddons,
+  onObtainSelectedOptions,
+  onObtainSelectedAddons
+
 }) => {
   const [ showModalId, setShowModalId ] = useState(null);
   //array de objetos con los items de uno de los menús: lunch o breakfast
 
   //FUNCIONES
-  // const handleObtainOption = (clientName) => {
-  //   setClientName(clientName);
-  // };
+ 
+  const handleCloseModal = ()=>{
+    setShowModalId(null)
+  }
 
 
 
@@ -32,23 +35,24 @@ export const Menu = ({
             {product.options !== undefined && showModalId === product.id && (
               <BurgerModal
                 options={product.options}
-                onClose={() => {}}
-                onAddOptions={() => {}}
+                onClose={handleCloseModal}
+                selectedOption={selectedOption}
+                selectedAddons={selectedAddons}                
+                onObtainSelectedOptions={onObtainSelectedOptions}
+                onObtainSelectedAddons={onObtainSelectedAddons}  
+                onAddProduct={onAddProduct}    
+                productId={product.id}
               />
             )}
             <button
               onClick={() => { product.options ? setShowModalId(product.id) : onAddProduct(product.id) }}
               style={{ width: "300px" }}
             >
-              <img
-                src={product.image}
-                alt={product.item}
-                style={{ width: "100%" }}
-              />
-              {/* <input type="checkbox" value = { product.item } onChange={handlerChange}/> */}
+              {/*  <img src={process.env.PUBLIC_URL+product.image} alt={product.iem} /> */}
               <p>{product.item}</p>
               <p>$ {product.price}</p>
             </button>
+            
           </li>
         ))}
       </ul>

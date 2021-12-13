@@ -12,6 +12,9 @@ export const TakingOrders = ({ title, menuProducts }) => {
   const [clientName, setClientName] = useState("")
   const [summaryProducts, setSummaryProducts] = useState([])
 
+  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedAddons, setSelectedAddons] = useState([]);
+
   const menuTypes = [...new Set(menuProducts.map((product) => product.type))];
 
   const prices = summaryProducts.map(({ id, quantity }) => {
@@ -35,8 +38,25 @@ export const TakingOrders = ({ title, menuProducts }) => {
   }
 
   const handleAddProductToSummary = (id) => {
+    console.log(summaryProducts)
     if (summaryProducts.filter(product => product.id === id).length === 0) {
-      setSummaryProducts([...summaryProducts, { id, quantity: 1 }])
+      setSummaryProducts([...summaryProducts, { id, quantity: 1, protein:selectedOption, addOns: selectedAddons }])
+    }
+    setSelectedOption("")
+    setSelectedAddons([])
+  }
+
+  const handleObtainSelectedOptions = (id)=>{
+     setSelectedOption(id)
+  }
+
+  const handleObtainSelectedAddons = (id)=>{
+
+    if(selectedAddons.filter((addonsId)=>addonsId === id).length === 0){
+      setSelectedAddons([...selectedAddons, id])
+    }else {
+      const deleteAddon = selectedAddons.filter((addonsId)=>addonsId !== id)
+      setSelectedAddons(deleteAddon)
     }
   }
 
@@ -81,12 +101,6 @@ export const TakingOrders = ({ title, menuProducts }) => {
         clientName={clientName}
         onObtainClientTable={handleObtainClientTable}
         onObtainClientName={handleObtainClientName} />
-      {/* {showModalWindow === true && (
-        <BurgerModal
-          sethamburgerType={sethamburgerType}
-          setShowModalWindow={setShowModalWindow}
-        />
-      )} */}
 
       {menuTypes.map((type) => (
         <Menu
@@ -95,6 +109,10 @@ export const TakingOrders = ({ title, menuProducts }) => {
           summaryProducts={summaryProducts}
           onAddProduct={handleAddProductToSummary}
           type={type}
+          selectedOption={selectedOption}
+          selectedAddons={selectedAddons}
+          onObtainSelectedOptions={handleObtainSelectedOptions}
+          onObtainSelectedAddons={handleObtainSelectedAddons}
         />
       ))}
 
