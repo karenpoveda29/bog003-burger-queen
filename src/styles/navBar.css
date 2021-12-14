@@ -5,10 +5,10 @@
   align-items: center;
   justify-content: space-evenly;
   width: 15%;
-  border-right: 2px solid var(--main-color2); 
-      position: fixed;
-    background-color: #fff;
-    top: 0;
+  border-right: 2px solid var(--main-color2);
+  position: sticky;
+  background-color: #fff;
+  top: 0;
 }
 
 .navBar .logo-text {
@@ -21,15 +21,6 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
-.home-view{
-  display: block;
-}
-
-/* .navBar .pending-order {
-  font-size: 1.2rem;
-  text-align: center;
-  padding: 0 .5rem;
-} */
 
 .navBar img {
   width: 50px;
@@ -42,7 +33,7 @@
 }
 
 .notification-icon {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .notification-number {
@@ -50,7 +41,7 @@
   text-align: center;
   border: 2px solid #333;
   border-radius: 50%;
-  padding: .4rem .4rem;
+  padding: 0.4rem 0.4rem;
 }
 
 .user-section {
@@ -65,5 +56,5 @@
 
 .user-name {
   text-align: center;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
 }

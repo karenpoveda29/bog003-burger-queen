@@ -12,28 +12,6 @@ import data from "../data/menu.json"
 
 export const Waiter = () => {
 
-  //array que recibe los items  que se van seleccionando
-  // const itemsOrder = [
-  //   {id:"1", item: "hamburguesa", price: 3, quantity: 2, categories: ["lunch"]},
-  //   {id:"2", item: "agua", price: 5, quantity: 1, categories: ["lunch"]}
-  // ]
-
-
-  //HOOKS
-  /*  //1 tomar datos del pedido
-   const [customer, setCustomer] = useState({
-    table:'',
-    clientName:'',
-    itemsOrder:[]
-   }) */
-
-  //2 cambiar el estado del resumen del pedido
-
-  //calcular el monto total del pedido
-  
-
-
-
   //FUNCIONES
   
   

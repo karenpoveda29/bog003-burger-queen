@@ -11,14 +11,16 @@ export const OrderSummary = ({ summaryProducts, menuProducts, onIncrease, onDecr
           const menuProduct = menuProducts.find(menuProduct => menuProduct.id === product.id);
           return (
             <li key={index}>
-              <p>{`${menuProduct.item} ${product.protein}`} {product.addOns.map((addOn)=>addOn.addOnName).join(" ")}</p>
-              <p>
+              <p className="product-name">{`${menuProduct.item} ${product.protein}`} {product.addOns.map((addOn)=>addOn.addOnName).join(" ")}</p>
+              <p className="product-price">
               ${menuProduct.price + product.addOns.reduce((acumulador, addOn)=>acumulador + addOn.addOnPrice ,0)}
               </p>
-              <button className="less-btn" onClick={() => onDecrease(product.id)}>-</button>
-              <span>{product.quantity}</span>
-              <button  className="plus-btn" onClick={() => onIncrease(product.id)}>+</button>
-              <img id="deleteBtn" src={deleteIcon} alt="Borrar" onClick={() => onDelete(product.id)}/>
+              <div className="quantity-btns">
+                <button className="less-btn" onClick={() => onDecrease(product.id)}>-</button>
+                <span>{product.quantity}</span>
+                <button  className="plus-btn" onClick={() => onIncrease(product.id)}>+</button>
+              </div>
+              <img className="deleteBtn" src={deleteIcon} alt="Borrar" onClick={() => onDelete(product.id)}/>
             </li>
           )
         })}

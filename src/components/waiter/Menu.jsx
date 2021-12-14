@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-
 import BurgerModal from "./BurgerModal";
 import "../../styles/menu.css";
 
@@ -27,7 +26,7 @@ export const Menu = ({
 
 
   return (
-    <div className="menu">
+    <div className="sub-menu">
       <h2>{type}</h2>
       <ul>
         {products.map((product) => (
@@ -44,7 +43,8 @@ export const Menu = ({
                 productId={product.id}
               />
             )}
-            <button
+            <button 
+              className="product-btn"
               onClick={() => { product.options ? setShowModalId(product.id) : onAddProduct(product.id) }}
               style={{ width: "300px" }}
             >

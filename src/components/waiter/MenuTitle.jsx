@@ -10,8 +10,8 @@ export const MenuTitle = ({
 }) => {
 
     return (
-    <div className="menuTitle">
-       <h1>{ title }</h1>
+    <div className="menuTitleDiv">
+       <h1 className="menu-Title">{ title }</h1>
       
       <select className="user-table" id="userTable" name="table" value = {clientTable} onChange={(e)=>onObtainClientTable(e.target.value)}>
         <option value="-1" disabled>Mesa</option>
