@@ -25,3 +25,10 @@ export const createOrder = (tableNumber, userName, clientOrder, totalAmount) => 
     total: totalAmount
   });
 };
+
+export const getOrders = (orderId) => {
+ return db.collection('orders').doc(orderId).get();
+};
+
+
+

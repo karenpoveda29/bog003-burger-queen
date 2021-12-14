@@ -19,7 +19,7 @@ export const ProfileSelection = () => {
                 <p className="waiter-text">Mesero</p>
             </div>
             <div className="chef">
-                <img onClick = { () => goPath("/home-chef") } className="chef-img" src={kitchenImage} alt="Cocina" />
+                <img onClick = { () => goPath("/chef") } className="chef-img" src={kitchenImage} alt="Cocina" />
                 <p className="chef-text">Cocina</p>
             </div>
           </div>

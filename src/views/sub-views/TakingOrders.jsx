@@ -56,14 +56,15 @@ export const TakingOrders = ({ title, menuProducts }) => {
   };
 
   const handleObtainSelectedAddons = ({ addOnName, addOnPrice }) => {
+    console.log(addOnName);
     if (
-      selectedAddons.filter((addOn) => addOn.addOnName === addOnName.addOnName)
-        .length === 0
+      selectedAddons.filter((addOn) => addOn.addOnName === addOnName).length ===
+      0
     ) {
       setSelectedAddons([...selectedAddons, { addOnName, addOnPrice }]);
     } else {
       const deleteAddon = selectedAddons.filter(
-        (addOn) => addOn.addOnName !== addOnName.addOnName
+        (addOn) => addOn.addOnName !== addOnName
       );
       setSelectedAddons(deleteAddon);
     }

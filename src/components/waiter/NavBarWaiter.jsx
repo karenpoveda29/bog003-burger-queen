@@ -20,7 +20,7 @@ export const NavBarWaiter = () => {
   return (
     <nav className="navBar">
       {/* <img className="arrowClose" src={"./images/flecha-cerrar.png"} alt="Flecha Cerrar Menu" /> */}
-      <img className="logo-text" src={logoIcon} alt="Burger Queen" />
+      <Link to="/waiter"> <img className="logo-text" src={logoIcon} alt="Burger Queen" /> </Link>
       <h2>Menús</h2>
       <div>
         <Link to="/waiter/breakfast-menu"><img className="menu-breakfast" src={menu1Icon} alt="Menu desayuno" /> </Link>
@@ -34,7 +34,7 @@ export const NavBarWaiter = () => {
       {/* <h2>Pedidos pendientes</h2> */}
       <div className="notification">
         <img className="notification-icon" src={notificationIcon} alt="Notificación" />
-        <p className="notification-number">3</p>
+        {/* <p className="notification-number">3</p> */}
       </div>
       <div className="user-section">
         <img className="user-icon" src={perfilIcon} alt="logo perfil" />

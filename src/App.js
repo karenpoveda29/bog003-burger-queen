@@ -4,7 +4,7 @@ import { Login } from './views/Login';
 import { RegisterForm } from './views/RegisterForm';
 import { ProfileSelection } from './views/ProfileSelection';
 import { Waiter } from './views/Waiter';
-import { HomeChef } from './views/HomeChef'
+import { Chef } from './views/Chef'
 
 export const App= () => {
 
@@ -34,8 +34,8 @@ export const App= () => {
             <Waiter />
           </Route>
 
-          <Route path = "/home-chef">
-            <HomeChef />
+          <Route path = "/chef">
+            <Chef />
           </Route>
 
         </Switch>

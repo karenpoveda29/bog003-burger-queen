@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import '../../styles/navBar.css'
 import {logOutUser} from "../../firebaseFunctions"
 import logoIcon from "../../images/BQ.png"
@@ -17,11 +18,11 @@ export const NavBarChef = () => {
   return (
     <nav className="navBar">
       {/* <img className="arrowClose" src={"./images/flecha-cerrar.png"} alt="Flecha Cerrar Menu" /> */}
-      <img className="logo-text" src={logoIcon} alt="Burger Queen" />
+      <Link to="/chef"> <img className="logo-text" src={logoIcon} alt="Burger Queen" /> </Link>
       {/* <h2 className="pending-order">Pedidos pendientes</h2> */}
       <div className="notification">
-        <img className="notification-icon" src={notificationIcon} alt="Notificación" />
-        <p className="notification-number">3</p>
+      <Link to="/chef/pending-cooking"> <img className="notification-icon" src={notificationIcon} alt="Notificación" /> </Link>
+        {/* <p className="notification-number">3</p> */}
       </div>
       <div className="user-section">
         <img className="user-icon" src={perfilIcon} alt="logo perfil" />
