@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/resumeOrder.css";
+import "../../styles/orderSummary.css";
 import deleteIcon from "../../images/delete.png";
 
 export const OrderSummary = ({ summaryProducts, menuProducts, onIncrease, onDecrease, onDelete }) => {
