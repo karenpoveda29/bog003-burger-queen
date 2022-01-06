@@ -1,0 +1,60 @@
+.navBar {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 15%;
+  border-right: 2px solid var(--main-color2);
+  position: sticky;
+  background-color: #fff;
+  top: 0;
+}
+
+.navBar .logo-text {
+  width: 70px;
+  cursor: default;
+}
+
+.navBar h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navBar img {
+  width: 50px;
+  cursor: pointer;
+}
+
+.navBar hr {
+  width: 70%;
+  border: 1px solid var(--main-color2);
+}
+
+.notification-icon {
+  margin-bottom: 0.5rem;
+}
+
+.notification-number {
+  font-size: 1.1rem;
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 50%;
+  padding: 0.4rem 0.4rem;
+}
+
+.user-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-section .user-icon {
+  cursor: default;
+}
+
+.user-name {
+  text-align: center;
+  padding: 0 0.3rem;
+}

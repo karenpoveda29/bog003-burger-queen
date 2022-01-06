@@ -1,0 +1,48 @@
+.container-prof-select {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.profile-selection-title {
+  font-size: 4rem;
+  color: var(--main-color2);
+  text-align: center;
+}
+
+.profile-choices div {
+  box-shadow: 5px 10px 30px 3px rgba(88, 87, 87, 0.2);
+  border-radius: 15px;
+  padding: 2rem 3rem 1.5rem;
+  cursor: pointer;
+}
+
+.profile-choices .waiter {
+  margin-bottom: 6rem;
+}
+
+.profile-choices img {
+  width: 200px;
+  margin-bottom: .5rem;
+}
+
+.profile-choices p {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--main-color1);
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .profile-choices {
+    display: flex;
+  }
+
+  .profile-choices .waiter {
+    margin-right: 8rem;
+    margin-bottom: 0;
+  }
+}
+

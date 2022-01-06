@@ -1,0 +1,103 @@
+.container-register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.register-img {
+  width: 150px;
+}
+
+.form-title {
+  font-size: 2rem;
+  color: var(--main-color2);
+}
+
+.form-reg {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-reg label {
+  color: var(--main-color1);
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.form-reg .user-type {
+  font-size: 1.2rem;
+  padding: .5rem;
+  margin-bottom: .8rem;
+  text-align: center;
+  border-radius: 10px;
+  border: 2px solid #F29F05;
+}
+
+.form-reg select:focus-visible {
+  outline: var(--main-color1);
+  box-shadow: 2px 2px 2px 0px var(--main-color1);
+}
+
+.form-reg input {
+  border-radius: 10px 0px 10px 0;
+  border-top: 0.2px solid #fec762;
+  border-bottom: 2px solid var(--main-color1);
+  border-left: 0.2px solid #fec762;
+  border-right: 2px solid var(--main-color1);
+  margin-bottom: .8rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.form-reg input:focus-visible {
+  outline: var(--main-color1);
+  box-shadow: 2px 2px 2px 0px var(--main-color1);
+}
+
+.form-reg input::placeholder {
+  font-size: 0.9rem;
+  color: #989898;
+}
+
+.btn-register {
+  background-color: var(--main-color2);
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: .5rem 0;
+  margin-top: 2rem;
+  border-radius: 10px;
+  border: var(--main-color2);
+  box-shadow: 3px 4px #bce165;
+  cursor: pointer;
+}
+
+a {
+  font-size: 1.3rem;
+}
+
+a:link, a:visited {
+  color: var(--main-color1);
+}
+
+a:hover, a:active {
+  color: var(--main-color2);
+}
+
+.registerOk {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  color: green;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+

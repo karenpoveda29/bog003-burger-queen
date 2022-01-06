@@ -1,9 +1,10 @@
 import React from 'react'
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { RegisterForm } from './components/RegisterForm';
-import { Login } from './components/Login';
-import { Home } from './components/Home'
+import { Login } from './views/Login';
+import { RegisterForm } from './views/RegisterForm';
+import { ProfileSelection } from './views/ProfileSelection';
+import { Waiter } from './views/Waiter';
+import { Chef } from './views/Chef'
 
 export const App= () => {
 
@@ -24,9 +25,17 @@ export const App= () => {
           <Route path = "/register">
             <RegisterForm />
           </Route>
+
+          <Route path = "/profile-selection">
+            <ProfileSelection />
+          </Route>
           
-          <Route path = "/home">
-            <Home />
+          <Route path = "/waiter">
+            <Waiter />
+          </Route>
+
+          <Route path = "/chef">
+            <Chef />
           </Route>
 
         </Switch>

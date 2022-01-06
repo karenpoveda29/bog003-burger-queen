@@ -1,5 +1,7 @@
 import firebase from "firebase/compat/app"
 import "firebase/compat/auth"
+import "firebase/compat/firestore"
+
 
 export const fbConfig = firebase.initializeApp({
     "projectId": "bq10-burger-queen",
@@ -10,3 +12,6 @@ export const fbConfig = firebase.initializeApp({
     "authDomain": "bq10-burger-queen.firebaseapp.com",
     "messagingSenderId": "234202997381"
 });
+
+export const db = fbConfig.firestore()
+
