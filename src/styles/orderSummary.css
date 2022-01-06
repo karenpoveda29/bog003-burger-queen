@@ -86,6 +86,7 @@ button.btn-cancel {
   border: 1px solid var(--main-color1);
   border-radius: 10px;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 button.btn-sendKitchen {
@@ -97,6 +98,7 @@ button.btn-sendKitchen {
   border: none;
   border-radius: 10px;
   margin-left: 20px;
+  cursor: pointer;
 }
 
 
